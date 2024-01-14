@@ -81,13 +81,15 @@ get_header();
                                             <div class="h-12.5 w-15 rounded-md">
                                                 <?php 
                                                     $feature_image = get_the_post_thumbnail_url();
-                                                    if( !empty($feature_image) ) {
+                                                    $ai_generated_featured_image = get_field('ai_generated_featured_image');
+
+                                                    if( !empty($ai_generated_featured_image) ) {
+                                                        echo '<img src="'.$ai_generated_featured_image.'" alt="image" />';
+                                                    } elseif( !empty($feature_image) ) {
                                                         echo '<img src="'.$feature_image.'" alt="image" />';
-                                                    } else {
-                                                        echo '<img src="https://via.placeholder.com/120/0896f6/fff?text=Aritcle" alt="image" />';
                                                     }
+                                                    
                                                 ?>
-                                                
                                             </div>
                                             <p class="text-sm font-medium text-black dark:text-white">
                                                 <?php echo get_the_title();?>

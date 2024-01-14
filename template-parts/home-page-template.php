@@ -62,9 +62,14 @@ get_header();
                                     <a href="<?php echo get_the_permalink();?>" class="block px-4">
                                         <?php 
                                             $feature_image = get_the_post_thumbnail_url();
-                                            if( !empty($feature_image) ) {
+                                            $ai_generated_featured_image = get_field('ai_generated_featured_image');
+
+                                            if( !empty($ai_generated_featured_image) ) {
+                                                echo '<img src="'.$ai_generated_featured_image.'" alt="image" />';
+                                            } elseif( !empty($feature_image) ) {
                                                 echo '<img src="'.$feature_image.'" alt="image" />';
                                             }
+                                            
                                         ?>
                                     </a>
 

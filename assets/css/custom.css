@@ -1,0 +1,19 @@
+#loadeer {
+    display: none;
+}
+.step_item {
+    display: none;
+}
+.step_item#step1 {
+    display: block;
+}
+
+.ai_image {
+    display: none;
+}
+.ai_image.show {
+    display: block;
+}
+.upload_image.hide {
+    display: none;
+}
