@@ -9,8 +9,6 @@ get_header();
     <?php require_once('partials/dashboard-sidebar.php');?><!-- ===== Sidebar End ===== -->
     <!-- ===== Content Area Start ===== -->
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-        <!-- ===== Header Start ===== -->
-        <?php require_once('partials/dashboard-header.php');?><!-- ===== Header End ===== -->
         
         <main>
             <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">

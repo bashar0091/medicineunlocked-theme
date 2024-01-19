@@ -8,71 +8,38 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-$site_name = get_bloginfo( 'name' );
-$tagline   = get_bloginfo( 'description', 'display' );
-$header_nav_menu = wp_nav_menu( [
-	'theme_location' => 'menu-1',
-	'fallback_cb' => false,
-	'echo' => false,
-] );
+
 ?>
 
-<header  class="site-header" role="banner" style="display:none;">
-
-	<div class="site-branding">
-		<?php
-		if ( has_custom_logo() ) {
-			the_custom_logo();
-		} elseif ( $site_name ) {
-			?>
-			<h1 class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr__( 'Home', 'hello-elementor' ); ?>" rel="home">
-					<?php echo esc_html( $site_name ); ?>
-				</a>
-			</h1>
-			<p class="site-description">
-				<?php
-				if ( $tagline ) {
-					echo esc_html( $tagline );
-				}
-				?>
-			</p>
-		<?php } ?>
-	</div>
-
-	<?php if ( $header_nav_menu ) : ?>
-		<nav class="site-navigation">
-			<?php
-			// PHPCS - escaped by WordPress with "wp_nav_menu"
-			echo $header_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			?>
-		</nav>
-	<?php endif; ?>
-</header>
-
-
 <!-- ===== Header Start ===== -->
-<header id="site-header" class="bg-black sticky top-0 z-999 flex w-full drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
-	<div class="flex flex-grow items-center justify-between py-4 px-4 shadow-2 md:px-6 2xl:px-11">
-		
-		<div class="flex items-center gap-3 2xsm:gap-7">
-			<a href="<?php echo home_url('/');?>">
-				<?php 
-					$custom_logo_id = get_theme_mod( 'custom_logo' );
-					$logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
-					echo '<img class="w-40" src="'.$logo_url.'" alt="Logo" />';
-				?>
-			</a>
-		</div>
-
-		<div class="flex items-center gap-3 2xsm:gap-7">
+<header class="bg-black py-4">
+	<div class="container mx-auto px-5">
+		<div class="flex justify-between">
 			
-			<?php
+			<div class="flex items-center gap-5">
+				<a href="#!" class="menu_open_wrap">
+					<span class="humberger"></span>
+					<span class="humberger"></span>
+					<span class="humberger"></span>
+				</a>
+
+				<!-- logo -->
+				<a href="<?php echo home_url('/');?>" class="logo_wrap">
+					<?php 
+						$custom_logo_id = get_theme_mod( 'custom_logo' );
+						$logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
+						echo '<img class="w-36" src="'.$logo_url.'" alt="Logo" />';
+					?>
+				</a>
+			</div>
+			
+			<div class="flex items-center gap-7">
+
+				<?php 
 				if( !is_user_logged_in()  ) {
 					?>
-					<a href="<?php echo home_url('login');?>" class="inline-flex items-center justify-center rounded-full bg-primary py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-						Login
-					</a>
+					<a href="<?php echo home_url('/login');?>" class="text-white font-medium">Sign In</a>
+					<a href="#!" class="custom_btn">Subscribe</a>
 					<?php
 				} else {
 					?>
@@ -96,28 +63,16 @@ $header_nav_menu = wp_nav_menu( [
 										}
 									?>
 								</span>
-								<span class="block text-xs font-medium text-white">
-									<?php 
-										$current_user_id = get_current_user_id();
-
-										if ($current_user_id) {
-											$designation = get_user_meta($current_user_id, 'designation', true);
-										
-											if ($designation) {
-												echo $designation;
-											}
-										}									
-									?>
-								</span>
 							</span>
 
 							<span class="h-12 w-12 rounded-full">
 								<?php 
+									$current_user_id = get_current_user_id();
 									$user_profile_image = get_user_meta($current_user_id, 'user_profile_image', true);
 									if(!empty($user_profile_image)) {
-										echo '<img src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
+										echo '<img class="rounded-full" src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
 									} else {
-										echo '<img src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
+										echo '<img class="rounded-full" src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
 									}
 								?>
 							</span>
@@ -133,7 +88,7 @@ $header_nav_menu = wp_nav_menu( [
 						</a>
 
 						<!-- Dropdown Start -->
-						<div x-show="dropdownOpen" class="absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark" style="display: none;">
+						<div x-show="dropdownOpen" class="z-40 absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark" style="display: none;">
 							<ul class="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
 								<li>
 									<a href="<?php echo home_url('/user-profile');?>" class="flex items-center gap-3.5 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
@@ -181,7 +136,13 @@ $header_nav_menu = wp_nav_menu( [
 					<!-- User Area -->
 					<?php
 				}
-			?>
+				?>
+
+				<a href="#!">
+					<svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+				</a>
+			</div>
+
 		</div>
 	</div>
 </header>

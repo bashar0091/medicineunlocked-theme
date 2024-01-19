@@ -33,13 +33,13 @@ function hello_elementor_child_scripts_styles() {
 	);
 
 	if (is_page('create-new-article')) {
-        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
-		wp_enqueue_style('summernote-css', 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css');
+        // wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+		// wp_enqueue_style('summernote-css', '"https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css');
 
 		// Enqueue Bootstrap JS
-		wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
+		// wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
 		// Enqueue Summernote JS
-		wp_enqueue_script('summernote-js', 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js', array('jquery'), null, true);
+		// wp_enqueue_script('summernote-js', 'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js', array('jquery'), null, false);
     }
 
 	// custom admin dashboard css 
@@ -47,7 +47,11 @@ function hello_elementor_child_scripts_styles() {
 	wp_enqueue_style( 'custom-admin-custom-css', get_stylesheet_directory_uri() . '/assets/css/custom.css', array(), '1.0.0' );
 
 	// custom admin dashboard js 
+	wp_enqueue_script( 'custom-counterup2-script', 'https://unpkg.com/counterup2@2.0.2/dist/index.js', '', '1.0.0', '' );
 	wp_enqueue_script( 'custom-admin-dashboard-script', get_stylesheet_directory_uri() . '/assets/js/bundle.js', array( 'jquery' ), '1.0.0', true );
 	wp_enqueue_script( 'custom-admin-script', get_stylesheet_directory_uri() . '/assets/js/script.js', array( 'jquery' ), '1.0.0', true );
+	
+	// tailwind connect
+	wp_enqueue_script( 'custom-tailwind','https://cdn.tailwindcss.com', '', '1.0.0', '' );
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );

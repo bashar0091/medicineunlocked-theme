@@ -9,9 +9,7 @@ get_header();
     <?php require_once('partials/dashboard-sidebar.php');?><!-- ===== Sidebar End ===== -->
     <!-- ===== Content Area Start ===== -->
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-        <!-- ===== Header Start ===== -->
-        <?php require_once('partials/dashboard-header.php');?><!-- ===== Header End ===== -->
-        <!-- ===== Main Content Start ===== -->
+        
         <main>
             <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
                 <!-- Breadcrumb Start -->
@@ -30,15 +28,41 @@ get_header();
                                     <input
                                         type="text"
                                         placeholder="Enter your article Title"
-                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                                        class="title_on_change w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                                         name="post_title"
-                                        id="image_generator_text"
                                         required
                                     />
                                 </div>
 
-                                <div>
-                                    <a href="#!" id="step_1_next_btn" class="rounded bg-primary p-3 font-medium text-white">Next</a>
+                                <?php
+                                    $categories = get_categories(array(
+                                        'hide_empty' => false,
+                                    ));
+                                ?>
+
+                                <div class="cat_multiSelect">
+                                    <input type="hidden" class="cat_multiSelect_hidden_input" name="post_cat[]" value="">
+                                    <select multiple class="cat_multiSelect_field" data-placeholder="Select Category">
+                                        <?php
+                                            foreach ($categories as $category) {
+                                                ?>
+                                                <option value="<?= $category->term_id;?>"><?= $category->name;?></option>
+                                                <?php
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconX">
+                                    <g stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </g>
+                                </symbol>
+                                </svg>
+
+                                <div class="mt-4">
+                                    <a href="#!" id="step_1_next_btn" class="inline-block rounded bg-primary p-3 font-medium text-white">Next</a>
                                 </div>
                             </div>
                         </div>
@@ -48,16 +72,17 @@ get_header();
                         <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
                             <div class="p-6.5">
 
+                                <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+                                <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
                                 <div class="mb-6">
-                                    <label class="mb-2.5 block text-black dark:text-white">Message</label>
+                                    <label class="mb-2.5 block text-black dark:text-white">Content</label>
                                     <textarea
                                         rows="6"
-                                        placeholder="Type your message"
+                                        placeholder="Type your Content"
                                         id="editor"
-                                        class="w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                                        class="content_on_change w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                                         name="post_content"
                                     ></textarea>
-                                    <a href="#!" class="mb-3 inline-flex items-center justify-center rounded-md border border-primary text-center font-medium text-primary hover:bg-opacity-90 p-2" id="grammer_check_button">Correct Grammer</a>
                                 </div>
 
                                 <div>
@@ -72,7 +97,7 @@ get_header();
                         <!-- Contact Form -->
                         <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-6.5">
                             
-                            <div id="image-container">
+                            <div class="image-container">
 
                                 <div id="loadeer">
                                     <img src="<?php echo get_stylesheet_directory_uri().'/assets/img/loader.gif'?>" alt="">
@@ -89,7 +114,7 @@ get_header();
                                 </div>
 
                                 <div class="upload_image">
-                                    <img id="preview_img" class="h-auto w-100 object-cover mb-4" src="" />
+                                    <img id="preview_img" class="object-cover mb-4" src="" style="width: 200px;"/>
                                     <div id="FileUpload" class="relative mb-5.5 block w-full cursor-pointer appearance-none rounded border-2 border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5">
                                         <input type="file" name="post_image" onchange="loadFile(event)" accept="image/*" class="absolute inset-0 z-50 m-0 h-full w-full cursor-pointer p-0 opacity-0 outline-none" />
                                         <div class="flex flex-col items-center justify-center space-y-3">
@@ -137,8 +162,38 @@ get_header();
 
                             </div>
 
+                            <div class="mt-4">
+                                <a href="#!" id="step_3_prev_btn" class="inline-block rounded bg-secondary p-3 font-medium text-white">Previous</a>
+                                <a href="#!" id="step_3_next_btn" class="inline-block rounded bg-primary p-3 font-medium text-white">Next</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="step_item" id="step4">
+                        <!-- Contact Form -->
+                        <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-6.5">
+                        
+                            <div class="mb-4.5">
+                                <label class="mb-2.5 block text-black dark:text-white">Title <span class="text-meta-1">*</span></label>
+                                <div class="title_on_show w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                                </div>
+                            </div>
+
+                            <div class="mb-4.5">
+                                <label class="mb-2.5 block text-black dark:text-white">Content <span class="text-meta-1">*</span></label>
+                                <div class="content_on_show w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary">
+                                </div>
+                                <a href="#!" class="mb-3 inline-flex items-center justify-center rounded-md border border-primary text-center font-medium text-primary hover:bg-opacity-90 p-2" id="grammer_check_button">Correct Grammer</a>
+                            </div>
+
+                            <div class="image-container">
+                                <div class="upload_image">
+                                    <img id="preview_img2" class="object-cover mb-4" src=""  style="width: 200px;" />
+                                </div>
+                            </div>
+
                             <div class="flex gap-3">
-                                <a href="#!" id="step_3_prev_btn" class="rounded bg-secondary p-3 font-medium text-white">Previous</a>
+                                <a href="#!" id="step_4_prev_btn" class="rounded bg-secondary p-3 font-medium text-white">Previous</a>
                                 <button class="rounded bg-primary p-3 font-medium text-gray" name="create_post_btn">Publish Article</button>
                             </div>
                             

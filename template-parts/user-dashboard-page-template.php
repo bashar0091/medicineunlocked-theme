@@ -17,8 +17,6 @@ get_header();
 
     <!-- ===== Content Area Start ===== -->
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-        
-        <?php require_once('partials/dashboard-header.php');?>
 
         <!-- ===== Main Content Start ===== -->
         <main>
