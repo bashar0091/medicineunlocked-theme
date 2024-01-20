@@ -117,7 +117,7 @@ get_header();
                                     </div>
 
                                     <div class="mb-5">
-                                        <input type="submit" name="sign_in_btn" value="Sign In" class="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 font-medium text-white transition hover:bg-opacity-90" />
+                                        <input type="submit" name="sign_in_btn" value="Sign In" class="w-full cursor-pointer rounded-lg border bg_color4 p-4 font-medium text-white" />
                                     </div>
 
                                     <div class="mt-6 text-center">

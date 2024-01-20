@@ -30,7 +30,7 @@ a {
     background-color: var(--color_4);
 }
 .bg_color4 {
-    background-color: var(--color_1);
+    background-color: var(--color_1) !important;
 }
 .text_color1 {
     color: var(--color_5);
@@ -40,6 +40,12 @@ a {
 }
 .text_color3 {
     color: var(--color_1) !important;
+}
+.h-500 {
+    height: 500px;
+}
+.mt_225 {
+    margin-top: -225px;
 }
 .heading_xsm {
     text-transform: uppercase;

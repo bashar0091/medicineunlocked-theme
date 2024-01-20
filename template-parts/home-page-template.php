@@ -32,14 +32,33 @@ get_header();
                 <?php 
                     $args = array(
                         'post_type' => 'post',
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 4,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'post-filter-tag',
+                                'field' => 'slug',
+                                'terms' => 'most-trending',
+                            ),
+                        ),
                     );
                     
                     $query = new WP_Query($args);
                     
                     if ($query->have_posts()) {
+
+                        $post_count = 0;
+
                         while ($query->have_posts()) {
                             $query->the_post();
+
+                            // Exclude the first and second posts
+                            if ($post_count < 1) {
+                                $post_count++;
+                                continue;
+                            }
+
+                            $categories = get_the_category();
+
                             ?>
                             <div class="mb-3 flex article_card article_card_img_left bg-white rounded-lg p-3 gap-4">
                                 <div>
@@ -59,8 +78,8 @@ get_header();
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm">Behavioral</span>
-                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm">Behavioral</span>
+                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm"><?= $categories[0]->name;?></span>
+                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm"><?= $categories[1]->name;?></span>
                                         </div>
                                         <div>
                                             <span class="rounded-full text-sm">10k Reads</span>
@@ -117,6 +136,13 @@ get_header();
                     $args = array(
                         'post_type' => 'post',
                         'posts_per_page' => 1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'post-filter-tag',
+                                'field' => 'slug',
+                                'terms' => 'most-trending',
+                            ),
+                        ),
                     );
                     
                     $query = new WP_Query($args);
@@ -124,17 +150,30 @@ get_header();
                     if ($query->have_posts()) {
                         while ($query->have_posts()) {
                             $query->the_post();
+
+                            $categories = get_the_category();
+
                             ?>
                             <div class="mb-3 flex-col flex article_card article_card_img_left bg-white rounded-lg p-3 gap-4">
                                 <div class="flex-1">
-                                    <img class="rounded-lg" src="https://i0.wp.com/medicineunlocked.org/wp-content/uploads/2023/11/bd7287c7-ab69-4040-a11f-d2df6e370733.webp?resize=740%2C500&ssl=1" alt="article_img">
+                                    <?php 
+                                        $feature_image = get_the_post_thumbnail_url();
+                                        $ai_generated_featured_image = get_field('ai_generated_featured_image');
+
+                                        if( !empty($ai_generated_featured_image) ) {
+                                            echo '<img class="rounded-lg h-500 w-full object-cover object-top" src="'.$ai_generated_featured_image.'" alt="image" />';
+                                        } elseif( !empty($feature_image) ) {
+                                            echo '<img class="rounded-lg h-500 w-full object-cover object-top" src="'.$feature_image.'" alt="image" />';
+                                        }
+                                        
+                                    ?>
                                 </div>
 
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm">Behavioral</span>
-                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm">Behavioral</span>
+                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm"><?= $categories[0]->name;?></span>
+                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm"><?= $categories[1]->name;?></span>
                                         </div>
                                         <div>
                                             <span class="rounded-full text-sm">10k Reads</span>
@@ -205,13 +244,19 @@ get_header();
                     ?>
                         <div class="shadow-md mb-3 flex-col flex article_card article_card_img_left bg-white rounded-lg p-3 gap-1">
                             <div>
-                                <img class="h-20 w-20 object-contain" src="https://i.ibb.co/WypJnJZ/image.png" alt="image" />
+                                <?php
+                                    $id_for_acf = 'category_'.$category->cat_ID;
+                                    $category_image = get_field('category_image', $id_for_acf);
+                                    if(!empty($category_image)) {
+                                        echo '<img class="h-20 w-20 object-contain" src="'.$category_image.'" alt="image" />';
+                                    }
+                                ?> 
                             </div>
 
                             <div class="flex-1">
                                 <div>
                                     <h3 class="text-base font-bold text-black py-3"><?= $category->name;?></h3>
-                                    <p class="text-sm pb-3">Total 345 Articles</p>
+                                    <p class="text-sm pb-3">Total <?= $category->category_count;?> Articles</p>
                                 </div>
                             </div>
                         </div>
@@ -293,6 +338,13 @@ get_header();
                     $args = array(
                         'post_type' => 'post',
                         'posts_per_page' => 3,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'post-filter-tag',
+                                'field' => 'slug',
+                                'terms' => 'popular-articles',
+                            ),
+                        ),
                     );
                     
                     $query = new WP_Query($args);
@@ -300,6 +352,9 @@ get_header();
                     if ($query->have_posts()) {
                         while ($query->have_posts()) {
                             $query->the_post();
+
+                            $categories = get_the_category();
+
                             ?>
                             <div class="mb-3 flex article_card article_card_img_left bg-white rounded-lg p-3 gap-4">
                                 <div>
@@ -319,8 +374,8 @@ get_header();
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm">Behavioral</span>
-                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm">Behavioral</span>
+                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm"><?= $categories[0]->name;?></span>
+                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm"><?= $categories[1]->name;?></span>
                                         </div>
                                         <div>
                                             <span class="rounded-full text-sm">10k Reads</span>
@@ -381,6 +436,13 @@ get_header();
                     $args = array(
                         'post_type' => 'post',
                         'posts_per_page' => 3,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'post-filter-tag',
+                                'field' => 'slug',
+                                'terms' => 'most-read',
+                            ),
+                        ),
                     );
                     
                     $query = new WP_Query($args);
@@ -388,6 +450,9 @@ get_header();
                     if ($query->have_posts()) {
                         while ($query->have_posts()) {
                             $query->the_post();
+
+                            $categories = get_the_category();
+
                             ?>
                             <div class="mb-3 flex article_card article_card_img_left bg-white rounded-lg p-3 gap-4">
                                 <div>
@@ -407,8 +472,8 @@ get_header();
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm">Behavioral</span>
-                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm">Behavioral</span>
+                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm"><?= $categories[0]->name;?></span>
+                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm"><?= $categories[1]->name;?></span>
                                         </div>
                                         <div>
                                             <span class="rounded-full text-sm">10k Reads</span>
