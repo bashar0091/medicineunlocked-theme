@@ -144,19 +144,30 @@ jQuery(document).ready(function($) {
       $('.upload_on_image').html(img_copy);
   });
 
-  // 7. mouse hover to show correct grammer button
-  function grammer_button_show() {
-    $('.content_on_show p').on('mouseenter', function(){
-      // Check if the button already exists before appending
-      if ($(this).find('#grammer_check_button').length === 0) {
-        $(this).append(`<a href="#!" class="relative ml-3 inline-block rounded-md border border-primary text-center font-medium text-primary hover:bg-opacity-90 p-2 grammer_check_button">Correct Grammar</a>`);
-      }
-    });
+  // 7. co author multiselect
+  $('.co_author_check').on('change', function(){
+    var selectedValues = $('.co_author_check:checked').map(function() {
+        return this.value;
+    }).get();
 
-    $('.content_on_show p').on('mouseleave', function(){
-      $(this).find('.grammer_check_button').remove();
-    });
-  }
+    if (selectedValues.length <= 5) {
+        $('.coauthor_hidden_input').val(selectedValues.join(','));
+    } else {
+        alert("You can select up to 5 values.");
+        $(this).prop('checked', false);
+    }
+  });
+
+  // 8. category multiselect
+  $('.category_check').on('change', function(){
+    var selectedValues = $('.category_check:checked').map(function() {
+        return this.value;
+    }).get();
+
+    $('.category_hidden_input').val(selectedValues.join(','));
+  });
+
+
 
 });
 
@@ -185,86 +196,6 @@ var loadFile = function(event) {
     }
 };
 
-
-// multiselect js 
-jQuery(function() {
-  jQuery('.cat_multiSelect').each(function(e) {
-    var self = jQuery(this);
-    var field = self.find('.cat_multiSelect_field');
-    var fieldOption = field.find('option');
-    var placeholder = field.attr('data-placeholder');
-    var hiddenInput = self.find('.cat_multiSelect_hidden_input');
-
-    field.hide().after(`<div class="cat_multiSelect_dropdown"></div>
-                        <span class="cat_multiSelect_placeholder">` + placeholder + `</span>
-                        <ul class="cat_multiSelect_list"></ul>
-                        <span class="cat_multiSelect_arrow"></span>`);
-
-    fieldOption.each(function(e) {
-      jQuery('.cat_multiSelect_list').append(`<li class="cat_multiSelect_option" data-value="`+jQuery(this).val()+`">
-                                            <a class="cat_multiSelect_text">`+jQuery(this).text()+`</a>
-                                          </li>`);
-    });
-
-    var dropdown = self.find('.cat_multiSelect_dropdown');
-    var list = self.find('.cat_multiSelect_list');
-    var option = self.find('.cat_multiSelect_option');
-    var optionText = self.find('.cat_multiSelect_text');
-
-    dropdown.attr('data-multiple', 'true');
-    list.css('top', dropdown.height() + 5);
-
-    option.click(function(e) {
-      var self = jQuery(this);
-      e.stopPropagation();
-      self.addClass('-selected');
-      field.find('option:contains(' + self.children().text() + ')').prop('selected', true);
-
-      // Save selected value to hidden input as an array
-      var selectedValues = hiddenInput.val().split(',');
-      selectedValues.push(self.attr('data-value'));
-      hiddenInput.val(selectedValues.join(','));
-
-      dropdown.append(function(e) {
-        return jQuery('<span class="cat_multiSelect_choice">'+ self.children().text() +'<svg class="cat_multiSelect_deselect -iconX"><use href="#iconX"></use></svg></span>').click(function(e) {
-          var self = jQuery(this);
-          e.stopPropagation();
-          self.remove();
-          list.find('.cat_multiSelect_option:contains(' + self.text() + ')').removeClass('-selected');
-          list.css('top', dropdown.height() + 5).find('.cat_multiSelect_noselections').remove();
-          field.find('option:contains(' + self.text() + ')').prop('selected', false);
-
-          // Remove value from hidden input array
-          selectedValues = hiddenInput.val().split(',');
-          selectedValues = selectedValues.filter(value => value !== self.attr('data-value'));
-          hiddenInput.val(selectedValues.join(','));
-
-          if (dropdown.children(':visible').length === 0) {
-            dropdown.removeClass('-hasValue');
-          }
-        });
-      }).addClass('-hasValue');
-      list.css('top', dropdown.height() + 5);
-      if (!option.not('.-selected').length) {
-        list.append('<h5 class="cat_multiSelect_noselections">No Selections</h5>');
-      }
-    });
-
-    dropdown.click(function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      dropdown.toggleClass('-open');
-      list.toggleClass('-open').scrollTop(0).css('top', dropdown.height() + 5);
-    });
-
-    jQuery(document).on('click touch', function(e) {
-      if (dropdown.hasClass('-open')) {
-        dropdown.toggleClass('-open');
-        list.removeClass('-open');
-      }
-    });
-  });
-});
 
 // counterup js 
 document.addEventListener('DOMContentLoaded', function () {

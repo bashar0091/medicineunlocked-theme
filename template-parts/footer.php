@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<footer class="bg-black pt-20 mt-40">
+<footer class="bg-black pt-20 mt-40" id="footer_wrapper">
 	<div class="container mx-auto px-5">
 
 		<div class="mt_225 mb-20 max-w-6xl mx-auto flex article_card article_card_img_left bg_color4 rounded-lg p-8 gap-4 mb-20">

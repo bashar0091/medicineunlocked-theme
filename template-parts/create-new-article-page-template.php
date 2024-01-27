@@ -2,6 +2,16 @@
 /* Template Name: Create New Article */ 
 
 get_header();
+
+if( isset($_GET['edit']) ) {
+
+    $post_id = $_GET['edit'];
+    
+    $post_title = get_the_title($post_id);
+    $post_content = get_post_field('post_content', $post_id);
+    $post_content = wpautop($post_content);
+
+}
 ?>
 
 <div class="flex h-screen overflow-hidden">
@@ -30,36 +40,87 @@ get_header();
                                         placeholder="Enter your article Title"
                                         class="title_on_change w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                                         name="post_title"
-                                        required
+                                        value="<?= !empty($post_title) ? $post_title : '';?>"
                                     />
                                 </div>
 
-                                <?php
-                                    $categories = get_categories(array(
-                                        'hide_empty' => false,
-                                    ));
-                                ?>
+                                <div class="mt-5">
+                                    <label class="mb-2.5 block text-black dark:text-white">
+                                        Select Category
+                                    </label>
 
-                                <div class="cat_multiSelect">
-                                    <input type="hidden" class="cat_multiSelect_hidden_input" name="post_cat[]" value="">
-                                    <select multiple class="cat_multiSelect_field" data-placeholder="Select Category">
+                                    <div class="overflow-y-auto	max-h-48 ml-5 pl-5 border-l-4">
+                                        
                                         <?php
+                                            $categories = get_categories(array(
+                                                'hide_empty' => false,
+                                            ));
+
                                             foreach ($categories as $category) {
+                                                $checked = '';
+
+                                                if (isset($_GET['edit'])) {
+                                                    $edit_categories = get_the_category($post_id);
+
+                                                    foreach ($edit_categories as $edit_category) {
+                                                        if ($edit_category->cat_ID == $category->term_id) {
+                                                            $checked = 'checked';
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+
                                                 ?>
-                                                <option value="<?= $category->term_id;?>"><?= $category->name;?></option>
+                                                <label for="<?= $category->term_id; ?>_cat" class="mb-7 block cursor-pointer flex items-center gap-3">
+                                                    <input type="checkbox" id="<?= $category->term_id; ?>_cat" value="<?= $category->term_id; ?>"
+                                                        class="category_check" <?= $checked; ?> />
+                                                    <?= $category->name; ?>
+                                                </label>
                                                 <?php
                                             }
                                         ?>
-                                    </select>
+
+
+                                    </div>
+
+                                    <input type="hidden" class="category_hidden_input" name="category[]" value="<?php
+                                        foreach ($edit_categories as $edit_category) { 
+                                            echo $edit_category->term_id.',';
+                                        }
+                                    ?>">
+                                    
                                 </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="iconX">
-                                    <g stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                                    </g>
-                                </symbol>
-                                </svg>
+
+                                <div class="mt-5">
+                                    <label class="mb-2.5 block text-black dark:text-white">
+                                        Add Co-Author
+                                    </label>
+
+                                    <input type="hidden" class="coauthor_hidden_input" name="co_author[]" value="">
+                                    
+                                    <div class="overflow-y-auto	max-h-48 ml-5 pl-5 border-l-4">
+                                        <?php
+                                            $user_query = new WP_User_Query(array(
+                                                'orderby' => 'ID', // Order users by user ID
+                                                'order' => 'ASC',   // Order in ascending order
+                                            ));
+                                            $users = $user_query->get_results();
+
+                                            foreach ($users as $user) {
+                                                
+                                                $user_profile_image = get_user_meta($user->ID, 'user_profile_image', true);
+                                        ?>
+                                            <label for="<?= $user->ID;?>_co" class="mb-7 block cursor-pointer flex items-center gap-3">
+                                                <input type="checkbox" id="<?= $user->ID;?>_co" value="<?= $user->ID;?>" class="co_author_check" />
+                                                <?= esc_html($user->first_name . ' ' . $user->last_name);?>
+                                                <img class="rounded-full w-12 h-12" src="<?= esc_url(wp_get_attachment_url($user_profile_image));?>" alt="">
+                                            </label>
+                                        <?php
+                                            }
+                                        ?>
+                                    </div>
+                                    
+                                </div>
 
                                 <div class="mt-4">
                                     <a href="#!" id="step_1_next_btn" class="inline-block rounded bg-primary p-3 font-medium text-white">Next</a>
@@ -82,7 +143,7 @@ get_header();
                                         id="editor"
                                         class="content_on_change w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                                         name="post_content"
-                                    ></textarea>
+                                    ><?= !empty($post_content) ? $post_content : '';?></textarea>
                                 </div>
 
                                 <div>
@@ -194,7 +255,19 @@ get_header();
 
                             <div class="flex gap-3">
                                 <a href="#!" id="step_4_prev_btn" class="rounded bg-secondary p-3 font-medium text-white">Previous</a>
-                                <button class="rounded bg-primary p-3 font-medium text-gray" name="create_post_btn">Publish Article</button>
+                                <?php 
+                                    if( isset($_GET['edit']) ) {
+                                        ?>
+                                            <input type="hidden" name="post_id" value="<?= $post_id?>">
+                                            <button class="rounded bg-primary p-3 font-medium text-gray" name="update_article">Update Article</button>
+                                        <?php
+                                    } else {
+                                        ?>
+                                            <button class="rounded bg-primary p-3 font-medium text-gray" name="create_post_btn">Publish Article</button>
+                                        <?php
+                                    }
+                                ?>
+                                
                             </div>
                             
                         </div>
