@@ -145,6 +145,20 @@ if( isset($_GET['edit']) ) {
                                         name="post_content"
                                     ><?= !empty($post_content) ? $post_content : '';?></textarea>
                                 </div>
+                                <script>
+                                    jQuery('#editor').summernote({
+                                        height: 500,
+                                        toolbar: [
+                                        ['style', ['style']],
+                                        ['font', ['bold', 'underline', 'clear']],
+                                        ['color', ['color']],
+                                        ['para', ['ul', 'ol', 'paragraph']],
+                                        ['table', ['table']],
+                                        ['insert', ['link', 'picture', 'video']],
+                                        ['view', ['fullscreen', 'codeview', 'help']]
+                                        ]
+                                    });   
+                                </script>
 
                                 <div>
                                     <a href="#!" id="step_2_prev_btn" class="rounded bg-secondary p-3 font-medium text-white">Previous</a>

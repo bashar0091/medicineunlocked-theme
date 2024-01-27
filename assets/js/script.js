@@ -1,18 +1,7 @@
 jQuery(document).ready(function($) {
 
     // 1. editor added js
-    $('#editor').summernote({
-        height: 500,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-    });   
+    
 
     // 2. image generator api script
     var apiKey = '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';
@@ -166,7 +155,6 @@ jQuery(document).ready(function($) {
 
     $('.category_hidden_input').val(selectedValues.join(','));
   });
-
 
 
 });
