@@ -3,6 +3,8 @@
 
 get_header();
 
+$user_id = get_current_user_id();
+
 if( isset($_GET['edit']) ) {
 
     $post_id = $_GET['edit'];
@@ -107,13 +109,17 @@ if( isset($_GET['edit']) ) {
                                             $users = $user_query->get_results();
 
                                             foreach ($users as $user) {
+
+                                                if( $user->ID == $user_id) {
+                                                    continue;
+                                                }
                                                 
                                                 $user_profile_image = get_user_meta($user->ID, 'user_profile_image', true);
                                         ?>
                                             <label for="<?= $user->ID;?>_co" class="mb-7 block cursor-pointer flex items-center gap-3">
                                                 <input type="checkbox" id="<?= $user->ID;?>_co" value="<?= $user->ID;?>" class="co_author_check" />
                                                 <?= esc_html($user->first_name . ' ' . $user->last_name);?>
-                                                <img class="rounded-full w-12 h-12" src="<?= esc_url(wp_get_attachment_url($user_profile_image));?>" alt="">
+                                                <img class="rounded-full w-12 h-12" src="<?= !empty($user_profile_image) ? esc_url(wp_get_attachment_url($user_profile_image)) : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">
                                             </label>
                                         <?php
                                             }

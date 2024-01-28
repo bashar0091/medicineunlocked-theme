@@ -184,7 +184,38 @@ get_header();
                                                 <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                                                     <form action="" method="post">
                                                         <input type="hidden" name="post_id" value="<?= get_the_id()?>">
-                                                        <button class="rounded bg-primary p-3 font-medium text-gray" name="approve_post">Approve</button>
+
+                                                        <?php
+
+                                                            $co_author_id1 = get_post_meta(get_the_id(), '1_co-author_id', true);
+                                                            $co_author_id2 = get_post_meta(get_the_id(), '2_co-author_id', true);
+                                                            $co_author_id3 = get_post_meta(get_the_id(), '3_co-author_id', true);
+                                                            $co_author_id4 = get_post_meta(get_the_id(), '4_co-author_id', true);
+                                                            $co_author_id5 = get_post_meta(get_the_id(), '5_co-author_id', true);
+
+                                                            $co_author_approve1 = get_post_meta(get_the_id(), '1_co-author_approve', true);
+                                                            $co_author_approve2 = get_post_meta(get_the_id(), '2_co-author_approve', true);
+                                                            $co_author_approve3 = get_post_meta(get_the_id(), '3_co-author_approve', true);
+                                                            $co_author_approve4 = get_post_meta(get_the_id(), '4_co-author_approve', true);
+                                                            $co_author_approve5 = get_post_meta(get_the_id(), '5_co-author_approve', true);
+
+                                                            if( $co_author_id1 == $user_id && $co_author_approve1 == "approved" ) {
+                                                                echo 'Approved';
+                                                            } else if ( $co_author_id2 == $user_id && $co_author_approve2 == "approved" ) {
+                                                                echo 'Approved';
+                                                            } else if ( $co_author_id3 == $user_id && $co_author_approve3 == "approved" ) {
+                                                                echo 'Approved';
+                                                            } else if ( $co_author_id4 == $user_id && $co_author_approve4 == "approved" ) {
+                                                                echo 'Approved';
+                                                            } else if ( $co_author_id5 == $user_id && $co_author_approve5 == "approved" ) {
+                                                                echo 'Approved';
+                                                            } else {
+                                                                ?>
+                                                                    <button class="rounded bg-primary p-3 font-medium text-gray" name="approve_post">Approve</button>
+                                                                <?php
+                                                            }
+                                                        ?>
+
                                                     </form>
                                                 </td>
                                             </tr>

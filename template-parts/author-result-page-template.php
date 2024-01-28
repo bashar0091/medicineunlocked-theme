@@ -18,19 +18,19 @@ get_header();
                             $user_query = new WP_User_Query(array(
                                 'orderby' => 'ID',
                                 'order' => 'ASC',
-                                // 'meta_query' => array(
-                                //     'relation' => 'OR',
-                                //     array(
-                                //         'key'     => 'first_name',
-                                //         'value'   => $_GET['keyword'],
-                                //         'compare' => 'LIKE',
-                                //     ),
-                                //     array(
-                                //         'key'     => 'last_name',
-                                //         'value'   => $_GET['keyword'],
-                                //         'compare' => 'LIKE',
-                                //     ),
-                                // ),
+                                'meta_query' => array(
+                                    'relation' => 'OR',
+                                    array(
+                                        'key'     => 'first_name',
+                                        'value'   => $_GET['keyword'],
+                                        'compare' => 'LIKE',
+                                    ),
+                                    array(
+                                        'key'     => 'last_name',
+                                        'value'   => $_GET['keyword'],
+                                        'compare' => 'LIKE',
+                                    ),
+                                ),
                             ));
                             $users = $user_query->get_results();
 

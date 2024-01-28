@@ -147,9 +147,11 @@ get_header();
                                                             echo '<div class="flex gap-2">';
                                                                 // author 1
                                                                 if(!empty($co_author_id1) && $co_author_approve1 == 'approved') {
+
+                                                                    $co1 = esc_url(wp_get_attachment_url(get_user_meta($co_author_id1, 'user_profile_image', true)));
                                                                     ?>
                                                                         <div>
-                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= esc_url(wp_get_attachment_url(get_user_meta($co_author_id1, 'user_profile_image', true)));?>" alt="">
+                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= !empty($co1) ? $co1 : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">
                                                                             <p><?= get_user_meta($co_author_id1, 'first_name', true);?></p>
                                                                         </div>
                                                                     <?php
@@ -157,9 +159,11 @@ get_header();
 
                                                                 // author 2
                                                                 if(!empty($co_author_id2) && $co_author_approve2 == 'approved') {
+
+                                                                    $co2 = esc_url(wp_get_attachment_url(get_user_meta($co_author_id2, 'user_profile_image', true)));
                                                                     ?>
                                                                         <div>
-                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= esc_url(wp_get_attachment_url(get_user_meta($co_author_id2, 'user_profile_image', true)));?>" alt="">
+                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= !empty($co2) ? $co2 : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">
                                                                             <p><?= get_user_meta($co_author_id2, 'first_name', true);?></p>
                                                                         </div>
                                                                     <?php
@@ -167,9 +171,11 @@ get_header();
 
                                                                 // author 3
                                                                 if(!empty($co_author_id3) && $co_author_approve3 == 'approved') {
+
+                                                                    $co3 = esc_url(wp_get_attachment_url(get_user_meta($co_author_id3, 'user_profile_image', true)));
                                                                     ?>
                                                                         <div>
-                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= esc_url(wp_get_attachment_url(get_user_meta($co_author_id3, 'user_profile_image', true)));?>" alt="">
+                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= !empty($co3) ? $co3 : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">
                                                                             <p><?= get_user_meta($co_author_id3, 'first_name', true);?></p>
                                                                         </div>
                                                                     <?php
@@ -181,9 +187,11 @@ get_header();
                                                             echo '<div class="flex gap-2 justify-center">';
                                                                 // author 4
                                                                 if(!empty($co_author_id4) && $co_author_approve4 == 'approved') {
+
+                                                                    $co4 = esc_url(wp_get_attachment_url(get_user_meta($co_author_id4, 'user_profile_image', true)));
                                                                     ?>
                                                                         <div>
-                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= esc_url(wp_get_attachment_url(get_user_meta($co_author_id4, 'user_profile_image', true)));?>" alt="">
+                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= !empty($co4) ? $co4 : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">
                                                                             <p><?= get_user_meta($co_author_id4, 'first_name', true);?></p>
                                                                         </div>
                                                                     <?php
@@ -191,9 +199,11 @@ get_header();
 
                                                                 // author 5
                                                                 if(!empty($co_author_id5) && $co_author_approve5 == 'approved') {
+
+                                                                    $co5 = esc_url(wp_get_attachment_url(get_user_meta($co_author_id5, 'user_profile_image', true)));
                                                                     ?>
                                                                         <div>
-                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= esc_url(wp_get_attachment_url(get_user_meta($co_author_id5, 'user_profile_image', true)));?>" alt="">
+                                                                            <img class="rounded-full w-12 h-12 m-auto" src="<?= !empty($co5) ? $co5 : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">
                                                                             <p><?= get_user_meta($co_author_id5, 'first_name', true);?></p>
                                                                         </div>
                                                                     <?php
