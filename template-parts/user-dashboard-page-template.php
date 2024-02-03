@@ -1,11 +1,8 @@
 <?php 
-/* Template Name: user dashboard */ 
 
-// redirect if user is not logged in 
-if( !is_user_logged_in()  ) {
-    wp_redirect( home_url('/login') );
-    exit;
-}
+auth();
+
+/* Template Name: user dashboard */ 
 
 get_header();
 ?>

@@ -1,4 +1,7 @@
 <?php 
+
+auth();
+
 /* Template Name: All Article List */ 
 
 get_header();

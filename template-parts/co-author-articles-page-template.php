@@ -1,9 +1,13 @@
 <?php 
 
+auth();
+
 if(isset($_POST['approve_post'])) {
 
     $post_id = $_POST['post_id'];
     $user_id = get_current_user_id();
+
+    $post_author_id = $_POST['post_author_id'];
 
     $co_author_id1 = get_post_meta($post_id, '1_co-author_id', true);
     $co_author_id2 = get_post_meta($post_id, '2_co-author_id', true);
@@ -22,6 +26,17 @@ if(isset($_POST['approve_post'])) {
     } else if ( $co_author_id5 == $user_id ) {
         update_post_meta($post_id, '5_co-author_approve', 'approved');
     }
+
+    // author approve notification
+    $first_name = get_user_meta($user_id, 'first_name', true);
+    $last_name = get_user_meta($user_id, 'last_name', true);
+    $new_article_notification = array(
+        'post_title'    => 'Your post has been approved by Author '. $first_name .' '. $last_name,
+        'post_status'   => 'publish',
+        'post_author'   => $post_author_id,
+        'post_type'     => 'notification',
+    );
+    wp_insert_post($new_article_notification);
 
     wp_redirect(home_url('/co-author-articles'));
     exit;
@@ -184,6 +199,7 @@ get_header();
                                                 <td class="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                                                     <form action="" method="post">
                                                         <input type="hidden" name="post_id" value="<?= get_the_id()?>">
+                                                        <input type="hidden" name="post_author_id" value="<?= get_the_author_meta('ID'); ?>">
 
                                                         <?php
 

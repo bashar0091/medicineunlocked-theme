@@ -1,4 +1,7 @@
 <?php 
+
+auth();
+
 /* Template Name: Edit Profile */ 
 
 get_header();

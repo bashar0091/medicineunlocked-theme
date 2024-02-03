@@ -210,3 +210,13 @@ document.addEventListener('DOMContentLoaded', function () {
       IO.observe(el);
   });
 });
+
+
+// swipper js 
+var swiper = new Swiper(".banner_post_slider", {
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});

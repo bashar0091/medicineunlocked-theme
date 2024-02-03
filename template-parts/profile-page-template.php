@@ -2,6 +2,24 @@
 /* Template Name: User Profile */ 
 
 get_header();
+
+$scholar_badge_img = get_stylesheet_directory_uri() . '/assets/img/medicineunlocked-scholar-badge.svg';
+$groundbreaker_badge_img = get_stylesheet_directory_uri() . '/assets/img/medicineunlocked-groundbreaker-badge.svg';
+
+$current_user_id = get_current_user_id();
+
+// for 10 post publish 
+$post_count = count_user_posts($current_user_id);
+
+// for first 50 members 
+$args = array(
+    'orderby' => 'ID',
+    'order' => 'ASC',
+    'number' => 50,
+);
+$first_50_users = get_users($args);
+$first_50_user_ids = wp_list_pluck($first_50_users, 'ID');
+
 ?>
 
 <div class="flex">
@@ -50,7 +68,20 @@ get_header();
                                 </h3>
                                 
                             </div>
+
+                            <div class="flex items-center gap-5 justify-center mt-5">
+                                <?php 
+                                    if( $post_count > 9) {
+                                        echo '<a href="#!" title="Awarded for publishing 10 articles. A testament to dedicated contribution."><img src="'.$scholar_badge_img.'" alt="scholar_badge"></a>';
+                                    }
+
+                                    if (in_array($current_user_id, $first_50_user_ids)) {
+                                        echo '<a href="#!" title="Awarded to our first 50 members. Trailblazers who laid the foundation for our community."><img src="'.$groundbreaker_badge_img.'" alt="roundbreaker_badge"></a>';
+                                    }
+                                ?>
+                            </div>
                         </div>
+
                     </div>
                     <!-- ====== Profile Section End -->
                 </div>

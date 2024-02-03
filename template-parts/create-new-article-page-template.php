@@ -1,4 +1,7 @@
 <?php 
+
+auth();
+
 /* Template Name: Create New Article */ 
 
 get_header();
@@ -54,34 +57,34 @@ if( isset($_GET['edit']) ) {
                                     <div class="overflow-y-auto	max-h-48 ml-5 pl-5 border-l-4">
                                         
                                         <?php
-                                            $categories = get_categories(array(
-                                                'hide_empty' => false,
-                                            ));
+                                        $categories = get_categories(array(
+                                            'hide_empty' => false,
+                                        ));
 
-                                            foreach ($categories as $category) {
-                                                $checked = '';
+                                        foreach ($categories as $category) {
+                                            $checked = '';
+                                            $is_subcategory = $category->parent > 0; // Check if the category has a parent
 
-                                                if (isset($_GET['edit'])) {
-                                                    $edit_categories = get_the_category($post_id);
+                                            if (isset($_GET['edit'])) {
+                                                $edit_categories = get_the_category($post_id);
 
-                                                    foreach ($edit_categories as $edit_category) {
-                                                        if ($edit_category->cat_ID == $category->term_id) {
-                                                            $checked = 'checked';
-                                                            break;
-                                                        }
+                                                foreach ($edit_categories as $edit_category) {
+                                                    if ($edit_category->cat_ID == $category->term_id) {
+                                                        $checked = 'checked';
+                                                        break;
                                                     }
                                                 }
-
-                                                ?>
-                                                <label for="<?= $category->term_id; ?>_cat" class="mb-7 block cursor-pointer flex items-center gap-3">
-                                                    <input type="checkbox" id="<?= $category->term_id; ?>_cat" value="<?= $category->term_id; ?>"
-                                                        class="category_check" <?= $checked; ?> />
-                                                    <?= $category->name; ?>
-                                                </label>
-                                                <?php
                                             }
-                                        ?>
 
+                                            ?>
+                                            <label for="<?= $category->term_id; ?>_cat" class="mb-7 block cursor-pointer flex items-center gap-3<?= $is_subcategory ? ' sub_cat' : ''; ?>">
+                                                <input type="checkbox" id="<?= $category->term_id; ?>_cat" value="<?= $category->term_id; ?>"
+                                                    class="category_check" <?= $checked; ?> />
+                                                <?= $category->name; ?>
+                                            </label>
+                                            <?php
+                                        }
+                                        ?>
 
                                     </div>
 

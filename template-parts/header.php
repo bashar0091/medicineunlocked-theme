@@ -11,24 +11,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<!-- ===== Header Start ===== -->
-<header class="bg-black py-4">
-	<div class="container mx-auto px-5">
-		<div class="flex justify-between">
-			
-			<div class="flex items-center gap-5">
-				<a href="#!" class="menu_open_wrap">
-					<span class="humberger"></span>
-					<span class="humberger"></span>
-					<span class="humberger"></span>
-				</a>
+<header class="bg_colorN1 py-2">
+	<div class="custom_container_lg">
 
+		<div class="flex justify-between">
+			<div class="flex items-center gap-5">
 				<!-- logo -->
 				<a href="<?php echo home_url('/');?>" class="logo_wrap">
 					<?php 
 						$custom_logo_id = get_theme_mod( 'custom_logo' );
 						$logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
-						echo '<img class="w-36" src="'.$logo_url.'" alt="Logo" />';
+						echo '<img src="'.$logo_url.'" alt="Logo" />';
 					?>
 				</a>
 			</div>
@@ -38,8 +31,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php 
 				if( !is_user_logged_in()  ) {
 					?>
-					<a href="<?php echo home_url('/login');?>" class="text-white font-medium">Sign In</a>
+					<a href="<?php echo home_url('/login');?>" class="text-white">Sign In</a>
 					<a href="<?= home_url('/subscription');?>" class="custom_btn">Subscribe</a>
+
+					<a href="#!" class="menu_open_wrap">
+						<span class="humberger"></span>
+						<span class="humberger"></span>
+						<span class="humberger"></span>
+					</a>
 					<?php
 				} else {
 					?>
@@ -203,9 +202,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 				
 			</div>
-
 		</div>
+
 	</div>
 </header>
-
-<!-- ===== Header End ===== -->
