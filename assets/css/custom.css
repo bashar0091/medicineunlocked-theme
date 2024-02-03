@@ -22,6 +22,9 @@ div,
 a {
     font-family: var(--font_1);
 }
+p {
+    color: rgba(29, 41, 57, 1);
+}
 .bg_color1 {
     background-color: rgba(241, 246, 255, 1);
 }
@@ -645,4 +648,82 @@ span {
     width: 39.17px;
     height: 40.15px;
     font-size: 18px;
+}
+.top_profile_box {
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16px;
+    padding: 32px;
+}
+.top_profile_header {
+    border-bottom: 1px solid rgba(234, 236, 240, 1);
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+}
+.title_4 {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(16, 24, 40, 1);
+    font-family: 'Montserrat', sans-serif;
+}
+.link_1 {
+    font-weight: 500;
+    color: rgba(0, 22, 124, 1);
+}
+.rank_1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17.31px;
+    color: rgba(0, 22, 124, 1);
+    font-weight: 500;
+    background: rgba(229, 237, 255, 1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.roundImg1 {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+.title_5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(71, 84, 103, 1);
+}
+.profile_item {
+    border-bottom: 1px dashed rgba(208, 213, 221, 1);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+.profile_item:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.image_1 {
+    width: 149px;
+}
+.social li {
+    display: inline-block;
+}
+.social li a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    border: 1px solid rgba(29, 41, 57, 1);
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    transition: 0.3s;
+}
+.social li a:hover {
+    background: rgba(0, 22, 124, 1);
+    border-color: rgba(0, 22, 124, 1);
+}
+.social li a:hover path {
+    fill: #fff;
 }
