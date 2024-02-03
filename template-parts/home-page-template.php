@@ -397,7 +397,7 @@ get_header();
                                 $categories = get_the_category();
 
                                 ?>
-                                <div class="mb-3 article_card article_card_2 p-2">
+                                <div class="article_card article_card_2 p-2">
                                     <div class="relative featured_img_2">
                                         <span class="count_1 count_2"><?php echo $i;?></span>
                                         <?php 
@@ -506,214 +506,93 @@ get_header();
 </section>
 
 <section class="py-20">
-    <div class="container mx-auto px-5">
+    <div class="custom_container">
 
-        <div class="pb-4">
-            <span class="heading_xsm">By Topics</span>
-            <h2 class="heading_main">Articles By <span class="text_color3">Categories</span></h2>
+        <div class="text-center">
+            <h2 class="heading_main heading_main_2">Explore By Categories</h2>
         </div>
 
-        <div class="grid grid-cols-4 gap-8">
+        <div class="category_main_wrap">
             <?php 
                 $categories = get_categories();
-
+                $i = 0;
                 // Loop through each category
                 foreach ($categories as $category) {
+                    $i++;
+                    if($i == 6) {
+                        break;
+                    }
                     ?>
-                        <div class="shadow-md mb-3 flex-col flex article_card article_card_img_left bg-white rounded-lg p-3 gap-1">
+                        <div class="cateory_wrap">
                             <div>
                                 <?php
                                     $id_for_acf = 'category_'.$category->cat_ID;
                                     $category_image = get_field('category_image', $id_for_acf);
                                     if(!empty($category_image)) {
-                                        echo '<img class="h-20 w-20 object-contain" src="'.$category_image.'" alt="image" />';
+                                        echo '<img class="image_2" src="'.$category_image.'" alt="image" />';
                                     }
                                 ?> 
                             </div>
-
-                            <div class="flex-1">
-                                <div>
-                                    <h3 class="text-base font-bold text-black py-3"><?= $category->name;?></h3>
-                                    <p class="text-sm pb-3">Total <?= $category->category_count;?> Articles</p>
-                                </div>
+                            
+                            <div>
+                                <h3 class="text-base font-bold text-black py-3"><?= $category->name;?></h3>
                             </div>
                         </div>
                     <?php
                 }
             ?>
-		</div>
-    </div>
-</section>
-
-<section class="bg_color1 py-20">
-    <div class="container mx-auto px-5">
-
-        <div class="pb-4">
-            <span class="heading_xsm text-center block">About Us</span>
-            <h2 class="heading_main text-center">Who Are <span class="text_color3">we?</span></h2>
         </div>
 
-        <div class="pb-12 max-w-4xl mx-auto">
-            <p class="text-center text-black text-slate-500">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-
-        <div class="grid grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <div>
-                <h3 class="text_color3 text-center text-4xl font-bold py-3 counter">123+</h3>
-                <p class="text-center text-base font-medium pb-3">Working Authors</p>
-            </div>
-            <div>
-                <h3 class="text_color3 text-center text-4xl font-bold py-3 counter">321+</h3>
-                <p class="text-center text-base font-medium pb-3">Blog Writted</p>
-            </div>
-            <div>
-                <h3 class="text_color3 text-center text-4xl font-bold py-3 counter">456+</h3>
-                <p class="text-center text-base font-medium pb-3">Awards Win</p>
-            </div>
-            <div>
-                <h3 class="text_color3 text-center text-4xl font-bold py-3 counter">676+</h3>
-                <p class="text-center text-sbase font-mediumpb-3">People Saved</p>
-            </div>
-		</div>
-    </div>
-</section>
-
-<section class="py-20">
-    <div class="container mx-auto px-5">
-        <div class="mb-3 max-w-5xl mx-auto flex article_card article_card_img_left bg_color4 rounded-lg p-8 gap-4">
-            <div class="flex-1">
-                <div class="pb-4">
-                    <span class="heading_xsm text-white">Subscribe Now</span>
-                    <h2 class="heading_main text-4xl text-white py-6">
-                        Customize Your Author Profile. 
-                        <br>
-                        Contribute Articles.
-                        <br>
-                        Earn Badges
-                    </h2>
-                    <a href="#!" class="custom_btn bg-white text_color3 w-48">Subscribe Now</a>
-                </div>
-            </div>
-
-            <div>
-                <img class="rounded-lg h-64 w-96 object-cover object-top" src="https://i0.wp.com/medicineunlocked.org/wp-content/uploads/2023/11/a8508256-0218-4685-9ff2-4c04a9fe461d.webp?resize=370%2C250&ssl=1" alt="image" />
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg_color1 py-20">
-    <div class="container mx-auto px-5">
-
-        <div class="flex gap-20">
-			<div class="flex-1">
-                
-                <div class="pb-4">
-                    <h2 class="heading_main">Popular <span class="text_color3">Articles</span></h2>
-                </div>
-
-                <?php 
-                    $args = array(
-                        'post_type' => 'post',
-                        'posts_per_page' => 3,
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'post-filter-tag',
-                                'field' => 'slug',
-                                'terms' => 'popular-articles',
-                            ),
-                        ),
-                    );
-                    
-                    $query = new WP_Query($args);
-                    
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                            $query->the_post();
-
-                            $categories = get_the_category();
-
-                            ?>
-                            <div class="mb-3 flex article_card article_card_img_left bg-white rounded-lg p-3 gap-4">
+        <div class="category_main_wrap mt-3">
+            <?php 
+                $i = 0; // Reset $i before the second loop
+                // Loop through each category
+                foreach ($categories as $category) {
+                    $i++;
+                    if ($i > 5 && $i <= 10) {
+                        ?>
+                            <div class="cateory_wrap">
                                 <div>
-                                    <?php 
-                                        $feature_image = get_the_post_thumbnail_url();
-                                        $ai_generated_featured_image = get_field('ai_generated_featured_image');
-
-                                        if( !empty($ai_generated_featured_image) ) {
-                                            echo '<img class="rounded-lg h-52 w-52 object-cover object-top" src="'.$ai_generated_featured_image.'" alt="image" />';
-                                        } elseif( !empty($feature_image) ) {
-                                            echo '<img class="rounded-lg h-52 w-52 object-cover object-top" src="'.$feature_image.'" alt="image" />';
+                                    <?php
+                                        $id_for_acf = 'category_'.$category->cat_ID;
+                                        $category_image = get_field('category_image', $id_for_acf);
+                                        if(!empty($category_image)) {
+                                            echo '<img class="image_2" src="'.$category_image.'" alt="image" />';
                                         }
-                                        
-                                    ?>
+                                    ?> 
                                 </div>
-
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm"><?= $categories[0]->name;?></span>
-                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm"><?= $categories[1]->name;?></span>
-                                        </div>
-                                        <div>
-                                            <span class="rounded-full text-sm">10k Reads</span>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <h3 class="text-base font-bold text-black py-3">
-                                            <?php
-                                                $title_words = explode(' ', get_the_title());
-                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 15));
-                                                echo count($title_words) > 15 ? $trimmed_title . '...' : $trimmed_title;
-                                            ?>    
-                                        </h3>
-                                        <p class="text-sm pb-3">
-                                            <?php
-                                                $content_words = explode(' ', get_the_excerpt());
-                                                $trimmed_content = implode(' ', array_slice($content_words, 0, 15));
-                                                echo count($content_words) > 15 ? $trimmed_content . '...' : $trimmed_content;
-                                            ?> 
-                                        </p>
-                                    </div>
-
-                                    <div class="flex items-center gap-2">
-                                        <?php 
-                                            $post_author_id = get_post_field( 'post_author', get_the_ID() );
-                                            $user_profile_image = get_the_author_meta( 'user_profile_image', $post_author_id );
-                                            if(!empty($user_profile_image)) {
-                                                echo '<img class="w-8 h-8 object-cover object-top rounded-full" src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
-                                            } else {
-                                                echo '<img class="w-8 h-8 object-cover object-top rounded-full" src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
-                                            }
-
-                                            // =====
-                                            $author_first_name = get_the_author_meta( 'first_name', $post_author_id );
-                                            $author_last_name = get_the_author_meta( 'last_name', $post_author_id );
-                                            
-                                            echo $author_first_name . " " . $author_last_name;                                                    
-                                        ?>
-                                    </div>
+                                
+                                <div>
+                                    <h3 class="text-base font-bold text-black py-3"><?= $category->name;?></h3>
                                 </div>
                             </div>
-                            <?php
-                        }
-                        wp_reset_postdata();
+                        <?php
                     }
-                ?>
+                }
+            ?>
+        </div>
 
-			</div>
-			
-			<div class="flex-1">
+        <div class="text-center mt-10">
+            <a href="#!" class="btn_2 btn_3">Show more</a>
+        </div>
 
-                <div class="pb-4">
-                    <h2 class="heading_main">Most <span class="text_color3">Read</span></h2>
-                </div>
+    </div>
+</section>
 
+<section class="bg_color1 py-20">
+    <div class="custom_container">
+
+        <div class="pb-8 flex justify-between">
+            <h2 class="heading_main">Latest Articles</h2>
+            <a href="#!" class="btn_2">View All</a>
+        </div>
+
+        <div class="grid grid-cols-2 justify-between gap-8">
+            <div class="">
                 <?php 
                     $args = array(
                         'post_type' => 'post',
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 1,
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'post-filter-tag',
@@ -727,70 +606,81 @@ get_header();
                     
                     if ($query->have_posts()) {
                         while ($query->have_posts()) {
+                            $i++;
                             $query->the_post();
 
                             $categories = get_the_category();
 
                             ?>
-                            <div class="mb-3 flex article_card article_card_img_left bg-white rounded-lg p-3 gap-4">
-                                <div>
+                            <div class="article_card article_card_2 article_card_3 p-2">
+                                <div class="relative featured_img_2 featured_img_4">
+                                    <div class="video_bg_overlay"></div>
+
+                                    <div class="flex items-center gap-3 float_author">
+                                        <div>
+                                            <?php 
+                                                $post_author_id = get_post_field( 'post_author', get_the_ID() );
+                                                $user_profile_image = get_the_author_meta( 'user_profile_image', $post_author_id );
+                                                if(!empty($user_profile_image)) {
+                                                    echo '<img class="image_3" src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
+                                                } else {
+                                                    echo '<img class="image_3" src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
+                                                }                                                 
+                                            ?>
+                                        </div>
+                                        
+                                        <div>
+                                            <p class="author_text2 author_text2_1 text-white">
+                                                <?php 
+                                                    $author_first_name = get_the_author_meta( 'first_name', $post_author_id );
+                                                    $author_last_name = get_the_author_meta( 'last_name', $post_author_id );
+                                                    echo $author_first_name . " " . $author_last_name;                                                    
+                                                ?>
+                                            </p>
+                                            <p class="author_text3 author_text3_1 text-white"> <?= get_the_date();?></p>
+                                        </div>
+                                    </div>
+
                                     <?php 
                                         $feature_image = get_the_post_thumbnail_url();
                                         $ai_generated_featured_image = get_field('ai_generated_featured_image');
 
                                         if( !empty($ai_generated_featured_image) ) {
-                                            echo '<img class="rounded-lg h-52 w-52 object-cover object-top" src="'.$ai_generated_featured_image.'" alt="image" />';
+                                            echo '<img class="featured_img_1 featured_img_2 featured_img_4" src="'.$ai_generated_featured_image.'" alt="image" />';
                                         } elseif( !empty($feature_image) ) {
-                                            echo '<img class="rounded-lg h-52 w-52 object-cover object-top" src="'.$feature_image.'" alt="image" />';
+                                            echo '<img class="featured_img_1 featured_img_2 featured_img_4" src="'.$feature_image.'" alt="image" />';
                                         }
                                         
                                     ?>
                                 </div>
 
                                 <div class="flex-1">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <span class="rounded-full bg_color2 text_color1 py-1 px-3 text-sm"><?= $categories[0]->name;?></span>
-                                            <span class="rounded-full bg_color3 text_color2 py-1 px-3 text-sm"><?= $categories[1]->name;?></span>
-                                        </div>
-                                        <div>
-                                            <span class="rounded-full text-sm">10k Reads</span>
-                                        </div>
+
+                                    <div class="pb-4 pt-2">
+                                        <span class="cat_1 cat_2 cat_3"><?= !empty($categories[0]->name) ? $categories[0]->name : '';?></span>
+                                        <span class="cat_1 cat_2 cat_3"><?= !empty($categories[1]->name) ? $categories[1]->name : '';?></span>
                                     </div>
 
                                     <div>
-                                        <h3 class="text-base font-bold text-black py-3">
+                                        <h3 class="title_2 title_3 title_6">
                                             <?php
                                                 $title_words = explode(' ', get_the_title());
-                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 15));
-                                                echo count($title_words) > 15 ? $trimmed_title . '...' : $trimmed_title;
+                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                                echo count($title_words) > 10 ? $trimmed_title . '...' : $trimmed_title;
                                             ?>    
                                         </h3>
-                                        <p class="text-sm pb-3">
+                                        <p class="py-4 text_2">
                                             <?php
                                                 $content_words = explode(' ', get_the_excerpt());
-                                                $trimmed_content = implode(' ', array_slice($content_words, 0, 15));
-                                                echo count($content_words) > 15 ? $trimmed_content . '...' : $trimmed_content;
+                                                $trimmed_content = implode(' ', array_slice($content_words, 0, 20));
+                                                echo count($content_words) > 20 ? $trimmed_content . '...' : $trimmed_content;
                                             ?> 
                                         </p>
                                     </div>
 
-                                    <div class="flex items-center gap-2">
-                                        <?php 
-                                            $post_author_id = get_post_field( 'post_author', get_the_ID() );
-                                            $user_profile_image = get_the_author_meta( 'user_profile_image', $post_author_id );
-                                            if(!empty($user_profile_image)) {
-                                                echo '<img class="w-8 h-8 object-cover object-top rounded-full" src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
-                                            } else {
-                                                echo '<img class="w-8 h-8 object-cover object-top rounded-full" src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
-                                            }
-
-                                            // =====
-                                            $author_first_name = get_the_author_meta( 'first_name', $post_author_id );
-                                            $author_last_name = get_the_author_meta( 'last_name', $post_author_id );
-                                            
-                                            echo $author_first_name . " " . $author_last_name;                                                    
-                                        ?>
+                                    <div class="flex items-center justify-between gap-2 link_2 pt-4 pb-6">
+                                        <a href="#!">Read More</a>
+                                        <a href="#!" class="border-none flex gap-2 items-center"><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.0007 12C15.0007 13.6569 13.6576 15 12.0007 15C10.3439 15 9.00073 13.6569 9.00073 12C9.00073 10.3431 10.3439 9 12.0007 9C13.6576 9 15.0007 10.3431 15.0007 12Z" stroke="#8891a8" stroke-width="0.9120000000000001" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12.0012 5C7.52354 5 3.73326 7.94288 2.45898 12C3.73324 16.0571 7.52354 19 12.0012 19C16.4788 19 20.2691 16.0571 21.5434 12C20.2691 7.94291 16.4788 5 12.0012 5Z" stroke="#8891a8" stroke-width="0.9120000000000001" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> 256</a>
                                     </div>
                                 </div>
                             </div>
@@ -799,9 +689,268 @@ get_header();
                         wp_reset_postdata();
                     }
                 ?>
+            </div>
 
-			</div>
+            <div class="grid grid-cols-2 gap-5">
+                <?php 
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 4,
+                        'order' => 'ASC'
+                    );
+                    
+                    $query = new WP_Query($args);
+                    
+                    if ($query->have_posts()) {
+                        while ($query->have_posts()) {
+                            $i++;
+                            $query->the_post();
+
+                            $categories = get_the_category();
+
+                            ?>
+                            <div class="article_card article_card_2 article_card_3 p-2">
+                                <div class="relative featured_img_2 featured_img_3">
+                                    <?php 
+                                        $feature_image = get_the_post_thumbnail_url();
+                                        $ai_generated_featured_image = get_field('ai_generated_featured_image');
+
+                                        if( !empty($ai_generated_featured_image) ) {
+                                            echo '<img class="featured_img_1 featured_img_2 featured_img_3" src="'.$ai_generated_featured_image.'" alt="image" />';
+                                        } elseif( !empty($feature_image) ) {
+                                            echo '<img class="featured_img_1 featured_img_2 featured_img_3" src="'.$feature_image.'" alt="image" />';
+                                        }
+                                        
+                                    ?>
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <div class="pb-1">
+                                        <span class="cat_1 cat_2 cat_3"><?= !empty($categories[0]->name) ? $categories[0]->name : '';?></span>
+                                    </div>
+
+                                    <div class="pb-2">
+                                        <h3 class="title_2 title_3">
+                                            <?php
+                                                $title_words = explode(' ', get_the_title());
+                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 5));
+                                                echo count($title_words) > 5 ? $trimmed_title . '...' : $trimmed_title;
+                                            ?>    
+                                        </h3>
+                                    </div>
+
+                                    <div class="flex items-center gap-2 pb-2">
+                                        <span class="author_text1 author_text1_1">By </span>
+                                        <span class="author_text2 author_text2_1">
+                                            <?php 
+                                                $post_author_id = get_post_field( 'post_author', get_the_ID() );
+                                                $author_first_name = get_the_author_meta( 'first_name', $post_author_id );
+                                                $author_last_name = get_the_author_meta( 'last_name', $post_author_id );
+                                                echo $author_first_name . " " . $author_last_name;                                                    
+                                            ?>
+                                        </span>
+                                        <span class="author_text3 author_text3_1"> <?= get_the_date();?></span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        wp_reset_postdata();
+                    }
+                ?>
+            </div>
 		</div>
+    </div>
+</section>
+
+<section class="py-20">
+    <div class="custom_container">
+    
+        <div class="relative cta_bg" style="background-image:url(<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>)">
+            <div class="video_bg_overlay"></div>
+            <div class="relative grid grid_1_5">
+                <div>
+                    <h2 class="heading_main_3">Customize Your Author Profile Contribute Articles. Earn Badges.</h2>
+                    <p class="text-white my-5">Join us in making a difference! Subscribe today and actively contribute to our cause, fostering positive change and creating a better tomorrow.</p>
+                    <a href="<?= home_url('/subscription');?>" class="btn_4">Subscribe Now</a>
+                </div>
+                <div>
+                    <a href="#!"></a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</section>
+
+<section class="pb-20">
+    <div class="custom_container">
+
+        <div class="pb-8 flex justify-between">
+            <h2 class="heading_main">Important Global News and Updates</h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-5">
+            <?php 
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 3,
+                    'order' => 'ASC'
+                );
+                
+                $query = new WP_Query($args);
+                
+                if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                        $i++;
+                        $query->the_post();
+
+                        $categories = get_the_category();
+
+                        ?>
+                        <div class="article_card article_card_2 article_card_3 article_card_4 p-2">
+                            <div class="relative featured_img_2 featured_img_3 featured_img_5">
+                                <?php 
+                                    $feature_image = get_the_post_thumbnail_url();
+                                    $ai_generated_featured_image = get_field('ai_generated_featured_image');
+
+                                    if( !empty($ai_generated_featured_image) ) {
+                                        echo '<img class="featured_img_1 featured_img_2 featured_img_3 featured_img_5" src="'.$ai_generated_featured_image.'" alt="image" />';
+                                    } elseif( !empty($feature_image) ) {
+                                        echo '<img class="featured_img_1 featured_img_2 featured_img_3 featured_img_5" src="'.$feature_image.'" alt="image" />';
+                                    }
+                                    
+                                ?>
+                            </div>
+
+                            <div class="flex-1">
+
+                                <div class="pb-1">
+                                    <span class="cat_1 cat_2 cat_3"><?= !empty($categories[0]->name) ? $categories[0]->name : '';?></span>
+                                    <span class="cat_1 cat_2 cat_3"><?= !empty($categories[1]->name) ? $categories[1]->name : '';?></span>
+                                </div>
+
+                                <div class="pb-2">
+                                    <h3 class="title_2 title_3">
+                                        <?php
+                                            $title_words = explode(' ', get_the_title());
+                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                            echo count($title_words) > 10 ? $trimmed_title . '...' : $trimmed_title;
+                                        ?>    
+                                    </h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 pb-2">
+                                    <span class="author_text1 author_text1_1">By </span>
+                                    <span class="author_text2 author_text2_1">
+                                        <?php 
+                                            $post_author_id = get_post_field( 'post_author', get_the_ID() );
+                                            $author_first_name = get_the_author_meta( 'first_name', $post_author_id );
+                                            $author_last_name = get_the_author_meta( 'last_name', $post_author_id );
+                                            echo $author_first_name . " " . $author_last_name;                                                    
+                                        ?>
+                                    </span>
+                                    <span class="author_text3 author_text3_1"> <?= get_the_date();?></span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    wp_reset_postdata();
+                }
+            ?>
+        </div>
+
+        <hr class="border_1 border_2">
+
+        <div class="grid grid-cols-3 gap-5">
+            <?php 
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 6,
+                    'order' => 'ASC'
+                );
+                
+                $query = new WP_Query($args);
+                
+                if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                        $i++;
+                        $query->the_post();
+
+                        $categories = get_the_category();
+
+                        ?>
+                        <div class="article_card article_card_2">
+                            <div class="relative featured_img_2">
+                                <?php 
+                                    $feature_image = get_the_post_thumbnail_url();
+                                    $ai_generated_featured_image = get_field('ai_generated_featured_image');
+
+                                    if( !empty($ai_generated_featured_image) ) {
+                                        echo '<img class="featured_img_1 featured_img_2" src="'.$ai_generated_featured_image.'" alt="image" />';
+                                    } elseif( !empty($feature_image) ) {
+                                        echo '<img class="featured_img_1 featured_img_2" src="'.$feature_image.'" alt="image" />';
+                                    }
+                                    
+                                ?>
+                            </div>
+
+                            <div class="flex-1">
+
+                                <div class="pb-1">
+                                    <span class="cat_1 cat_2 cat_3 cat_4"><?= !empty($categories[0]->name) ? $categories[0]->name : '';?></span>
+                                </div>
+
+                                <div class="pb-2">
+                                    <h3 class="title_2 title_3">
+                                        <?php
+                                            $title_words = explode(' ', get_the_title());
+                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 5));
+                                            echo count($title_words) > 5 ? $trimmed_title . '...' : $trimmed_title;
+                                        ?>    
+                                    </h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 pb-2">
+                                    <span class="author_text1 author_text1_1">By </span>
+                                    <span class="author_text2 author_text2_1">
+                                        <?php 
+                                            $post_author_id = get_post_field( 'post_author', get_the_ID() );
+                                            $author_first_name = get_the_author_meta( 'first_name', $post_author_id );
+                                            $author_last_name = get_the_author_meta( 'last_name', $post_author_id );
+                                            echo $author_first_name . " " . $author_last_name;                                                    
+                                        ?>
+                                    </span>
+                                    <span class="author_text3 author_text3_1"> <?= get_the_date();?></span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    wp_reset_postdata();
+                }
+            ?>
+        </div>
+    </div>
+</section>
+
+<section class="pb-20">
+    <div class="custom_container">
+    
+        <div class="relative cta_bg" style="background-image:url(<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>)">
+            <div class="video_bg_overlay"></div>
+            <div class="relative text-center cta_2">
+                <h2 class="heading_main_3">Stay Updated Subscribe to Our Latest News</h2>
+                <p class="text-white my-5">Join us in making a difference! Subscribe today and actively contribute to our cause, fostering positive change and creating a better tomorrow.</p>
+                <a href="<?= home_url('/subscription');?>" class="btn_4 mx-auto">Subscribe Now</a>
+            </div>
+        </div>
+    
     </div>
 </section>
 
