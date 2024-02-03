@@ -782,6 +782,10 @@ span {
     font-weight: 600;
     line-height: 31.2px;
 }
+.title_6_1 {
+    color: rgba(16, 24, 40, 1);
+    font-family: 'Montserrat';
+}
 .text_2 {
     color: rgba(52, 64, 84, 1);
     line-height: 24px;
@@ -897,4 +901,59 @@ span {
 }
 .text_4 a {
     color: rgba(255, 255, 255, 1);
+}
+.slide_info {
+    background: rgba(241, 246, 255, 1);
+    border-radius: 16px;
+    padding: 32px;
+}
+.heading_main_4 {
+    color: rgba(16, 24, 40, 1);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46.8px;
+    font-family: 'Montserrat';
+}
+.head_wrap {
+    max-width: 850px;
+    margin: 0 auto;
+}
+.image_4 {
+    height: 378px;
+    object-fit: cover;
+    width: 541px;
+    margin-left: auto;
+    border-radius: 16px;
+}
+.icon_1 {
+    border: 1px solid rgba(206, 222, 255, 1);
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 100px;
+    background: rgba(229, 237, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination_type2 .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgba(0, 22, 124, 1);
+}
+.pagination_type2 {
+    margin-bottom: 25px;
+}
+.pagination_type2 .swiper-pagination-bullet {
+    background: rgba(102, 112, 133, 1);
+}
+.video_play {
+    width: 76px;
+    height: 76px;
+    display: inline-flex;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    margin-left: 50px;
 }
