@@ -54,7 +54,9 @@ if( isset($_GET['edit']) ) {
                                         Select Category
                                     </label>
 
-                                    <div class="overflow-y-auto	max-h-48 ml-5 pl-5 border-l-4">
+                                    <div class="overflow-y-auto	max-h-80 ml-5 pl-5 border-l-4">
+                                        
+                                        <input type="text" placeholder="Search" class="cat_search_input rounded border-[1.5px] border-stroke bg-transparent py-2 px-5 my-3 w-1/2 font-medium outline-none transition">
                                         
                                         <?php
                                         $categories = get_categories(array(
@@ -77,7 +79,7 @@ if( isset($_GET['edit']) ) {
                                             }
 
                                             ?>
-                                            <label for="<?= $category->term_id; ?>_cat" class="mb-7 block cursor-pointer flex items-center gap-3<?= $is_subcategory ? ' sub_cat' : ''; ?>">
+                                            <label for="<?= $category->term_id; ?>_cat" class="cat_search_label mb-7 block cursor-pointer flex items-center gap-3<?= $is_subcategory ? ' sub_cat' : ''; ?>">
                                                 <input type="checkbox" id="<?= $category->term_id; ?>_cat" value="<?= $category->term_id; ?>"
                                                     class="category_check" <?= $checked; ?> />
                                                 <?= $category->name; ?>
@@ -103,7 +105,8 @@ if( isset($_GET['edit']) ) {
 
                                     <input type="hidden" class="coauthor_hidden_input" name="co_author[]" value="">
                                     
-                                    <div class="overflow-y-auto	max-h-48 ml-5 pl-5 border-l-4">
+                                    <div class="overflow-y-auto	max-h-80 ml-5 pl-5 border-l-4">
+										<input type="text" placeholder="Search" class="author_search_input rounded border-[1.5px] border-stroke bg-transparent py-2 px-5 my-3 w-1/2 font-medium outline-none transition">
                                         <?php
                                             $user_query = new WP_User_Query(array(
                                                 'orderby' => 'ID', // Order users by user ID
@@ -119,7 +122,7 @@ if( isset($_GET['edit']) ) {
                                                 
                                                 $user_profile_image = get_user_meta($user->ID, 'user_profile_image', true);
                                         ?>
-                                            <label for="<?= $user->ID;?>_co" class="mb-7 block cursor-pointer flex items-center gap-3">
+                                            <label for="<?= $user->ID;?>_co" class="author_search_label mb-7 block cursor-pointer flex items-center gap-3">
                                                 <input type="checkbox" id="<?= $user->ID;?>_co" value="<?= $user->ID;?>" class="co_author_check" />
                                                 <?= esc_html($user->first_name . ' ' . $user->last_name);?>
                                                 <img class="rounded-full w-12 h-12" src="<?= !empty($user_profile_image) ? esc_url(wp_get_attachment_url($user_profile_image)) : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="">

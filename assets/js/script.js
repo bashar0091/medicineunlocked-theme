@@ -1,10 +1,54 @@
 jQuery(document).ready(function($) {
 
-    // 1. editor added js
+    // serach form type select 
+      $('.search_btn_type_click').on('click', function(){
+        $('.search_category_input').toggleClass('active');
+      });
+      $('.search_category_input label input').on('change', function(){
+        $('.search_category_input label').removeClass('active');
+        $(this).parent().addClass('active');
+
+        var get_val = $(this).val();
+        $('.search_btn_type_click span').text(get_val);
+
+        $('.search_category_input').removeClass('active');
+      });
+
+    // 1. category search
+    $(".cat_search_input").on("input", function () {
+        var keyword = $(this).val().toLowerCase();
+
+        $(".cat_search_label").each(function () {
+            var card = $(this);
+            var doctorName = card.text().toLowerCase();
+
+            if (doctorName.includes(keyword)) {
+                card.show();
+            } else {
+                card.hide();
+            }
+        });
+    });
+	
+	 // 1/2. category search
+    $(".author_search_input").on("input", function () {
+        var keyword = $(this).val().toLowerCase();
+
+        $(".author_search_label").each(function () {
+            var card = $(this);
+            var doctorName = card.text().toLowerCase();
+
+            if (doctorName.includes(keyword)) {
+                card.show();
+            } else {
+                card.hide();
+            }
+        });
+    });
     
 
     // 2. image generator api script
-    var apiKey = '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';
+    var apiKey = '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';
     var url = 'https://api.openai.com/v1/images/generations';
     $('#generate_button').on('click', function(e) {
         e.preventDefault();
@@ -122,6 +166,7 @@ jQuery(document).ready(function($) {
   $('.title_on_change').on('input', function() {
     var title_value = $(this).val();
     $('.title_on_show').html(title_value);
+	$('#image_generator_text').text(title_value);
   });
   $('#step_2_next_btn').on('click', function() {
     var content_value = $('.note-editable').html();
@@ -156,6 +201,34 @@ jQuery(document).ready(function($) {
     $('.category_hidden_input').val(selectedValues.join(','));
   });
 
+
+  // mobile menu open close
+  $('.menu_open_wrap').on('click', function(){
+    $('.mobile_menu').addClass('show');
+  });
+  $('.menu_close').on('click', function(){
+    $('.mobile_menu').removeClass('show');
+  });
+
+  //sidebar open close
+  $('.menu_open_click').on('click', function(){
+    $('.side_menu_wrap').addClass('show');
+    $('.side_menu').addClass('show');
+  });
+  $('.close_sidebar_click').on('click', function(){
+    $('.side_menu_wrap').removeClass('show');
+    $('.side_menu').removeClass('show');
+  });
+
+  //sidebar open close
+  $('.video_play_open').on('click', function(){
+    $('.video_popup_wrap').addClass('show');
+    $('body').addClass('freez');
+  });
+  $('.close_video_popup').on('click', function(){
+    $('.video_popup_wrap').removeClass('show');
+    $('body').removeClass('freez');
+  });
 
 });
 

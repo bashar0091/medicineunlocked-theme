@@ -17,21 +17,41 @@ get_header();
 
 <section class="video_bg relative overflow-hidden">
 
-    <video class="video_bg_src" poster="<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>" autoplayd muted loop src="https://player.vimeo.com/external/338064905.sd.mp4?s=468058f956610f28d7d8cab7fbc5890b004a9481&profile_id=164&oauth2_token_id=57447761"></video>
+    <video class="video_bg_src" poster="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Video.png" autoplay muted loop src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/first-banner-video.mp4"></video>
     <div class="video_bg_overlay"></div>
     
     <div class="custom_container relative h-full">
-        <div class="grid_wrapper_1 justify-between items-center h-full gap-20">
+        <div class="grid_wrapper_1 justify-between items-center h-full gap-20 cols_1_tab">
             <div class="w-full">
-                <h1 class="title_1">Enter Medicine Medtrics Explore health innovations with us today</h1>
-                <p class="text_1 pt-5 pb-10">Medicine Unlocked is your gateway to a treasure trove of medical insights, information, and knowledge.</p>
+                <h1 class="title_1 text_center_tab">Enter Medicine Medtrics Explore health innovations with us today</h1>
+                <p class="text_1 pt-5 pb-10 text_center_tab">Medicine Unlocked is your gateway to a treasure trove of medical insights, information, and knowledge.</p>
                 <form action="" method="get" class="search_form">
                     <input type="text" name="search_val" placeholder="Search Authors">
-                    <button type="submit" name="search_btn">Search Now</button>
+                    <a href="#!" class="search_btn search_btn_type_click">
+                        <span>Articles</span>
+                        <svg width="24px" height="24px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 14.5C11.9015 14.5005 11.8038 14.4813 11.7128 14.4435C11.6218 14.4057 11.5392 14.3501 11.47 14.28L8 10.78C7.90861 10.6391 7.86719 10.4715 7.88238 10.3042C7.89756 10.1369 7.96848 9.97954 8.08376 9.85735C8.19904 9.73515 8.352 9.65519 8.51814 9.63029C8.68428 9.6054 8.85396 9.63699 9 9.72003L12 12.72L15 9.72003C15.146 9.63699 15.3157 9.6054 15.4819 9.63029C15.648 9.65519 15.801 9.73515 15.9162 9.85735C16.0315 9.97954 16.1024 10.1369 16.1176 10.3042C16.1328 10.4715 16.0914 10.6391 16 10.78L12.5 14.28C12.3675 14.4144 12.1886 14.4931 12 14.5Z" fill="#00167c"></path> </g></svg>
+                    </a>
+                    <div class="search_category search_category_input">
+                        <label class="active">
+                            <input type="radio" checked name="serach_cat" value="Articles">
+                            <span><svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="none" stroke="#00167c" stroke-width="2" d="M16,7 L19,7 L19,11 L16,11 L16,7 Z M9,15 L20,15 M9,11 L13,11 M9,7 L13,7 M6,18.5 C6,19.8807119 4.88071187,21 3.5,21 C2.11928813,21 1,19.8807119 1,18.5 L1,7 L6.02493781,7 M6,18.5 L6,3 L23,3 L23,18.5 C23,19.8807119 21.8807119,21 20.5,21 L3.5,21"></path> </g></svg></span>
+                            Articles
+                        </label>
+                        <label>
+                            <input type="radio" name="serach_cat" value="Authors">
+                            <span><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#00167c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span>
+                            Authors
+                        </label>
+                        <label>
+                            <input type="radio" name="serach_cat" value="Categories">
+                            <span><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M2 6.47762C2 5.1008 2 4.4124 2.22168 3.86821C2.52645 3.12007 3.12007 2.52645 3.86821 2.22168C4.4124 2 5.1008 2 6.47762 2V2C7.85443 2 8.54284 2 9.08702 2.22168C9.83517 2.52645 10.4288 3.12007 10.7336 3.86821C10.9552 4.4124 10.9552 5.1008 10.9552 6.47762V6.47762C10.9552 7.85443 10.9552 8.54284 10.7336 9.08702C10.4288 9.83517 9.83517 10.4288 9.08702 10.7336C8.54284 10.9552 7.85443 10.9552 6.47762 10.9552V10.9552C5.1008 10.9552 4.4124 10.9552 3.86821 10.7336C3.12007 10.4288 2.52645 9.83517 2.22168 9.08702C2 8.54284 2 7.85443 2 6.47762V6.47762Z" fill="#00167c"></path><path d="M2 17.5224C2 16.1456 2 15.4572 2.22168 14.913C2.52645 14.1649 3.12007 13.5712 3.86821 13.2665C4.4124 13.0448 5.1008 13.0448 6.47762 13.0448V13.0448C7.85443 13.0448 8.54284 13.0448 9.08702 13.2665C9.83517 13.5712 10.4288 14.1649 10.7336 14.913C10.9552 15.4572 10.9552 16.1456 10.9552 17.5224V17.5224C10.9552 18.8992 10.9552 19.5876 10.7336 20.1318C10.4288 20.88 9.83517 21.4736 9.08702 21.7783C8.54284 22 7.85443 22 6.47762 22V22C5.1008 22 4.4124 22 3.86821 21.7783C3.12007 21.4736 2.52645 20.88 2.22168 20.1318C2 19.5876 2 18.8992 2 17.5224V17.5224Z" fill="#00167c"></path><path d="M13.0449 17.5224C13.0449 16.1456 13.0449 15.4572 13.2666 14.913C13.5714 14.1649 14.165 13.5712 14.9131 13.2665C15.4573 13.0448 16.1457 13.0448 17.5225 13.0448V13.0448C18.8994 13.0448 19.5878 13.0448 20.1319 13.2665C20.8801 13.5712 21.4737 14.1649 21.7785 14.913C22.0002 15.4572 22.0002 16.1456 22.0002 17.5224V17.5224C22.0002 18.8992 22.0002 19.5876 21.7785 20.1318C21.4737 20.88 20.8801 21.4736 20.1319 21.7783C19.5878 22 18.8994 22 17.5225 22V22C16.1457 22 15.4573 22 14.9131 21.7783C14.165 21.4736 13.5714 20.88 13.2666 20.1318C13.0449 19.5876 13.0449 18.8992 13.0449 17.5224V17.5224Z" fill="#00167c"></path><path clip-rule="evenodd" d="M16.7725 9.47766C16.7725 9.89187 17.1082 10.2277 17.5225 10.2277C17.9367 10.2277 18.2725 9.89187 18.2725 9.47766V7.22766H20.5225C20.9367 7.22766 21.2725 6.89187 21.2725 6.47766C21.2725 6.06345 20.9367 5.72766 20.5225 5.72766H18.2725V3.47766C18.2725 3.06345 17.9367 2.72766 17.5225 2.72766C17.1082 2.72766 16.7725 3.06345 16.7725 3.47766L16.7725 5.72766H14.5225C14.1082 5.72766 13.7725 6.06345 13.7725 6.47766C13.7725 6.89187 14.1082 7.22766 14.5225 7.22766H16.7725L16.7725 9.47766Z" fill="#00167c" fill-rule="evenodd"></path></g></svg></span>
+                            Categories
+                        </label>
+                    </div>
                 </form>
             </div>
 
-            <div class="swiper banner_post_slider">
+            <div class="swiper banner_post_slider d_none_tab">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <?php 
@@ -297,7 +317,7 @@ get_header();
 
         <div class="grid_wrapper_1 grid_wrapper_2 justify-between gap-8">
 			<div>
-                <div class="grid grid-cols-2 gap-8">
+                <div class="grid grid-cols-2 gap-8 cols_1_mob">
                     <?php 
                         $args = array(
                             'post_type' => 'post',
@@ -379,7 +399,7 @@ get_header();
 
                 <hr class="border_1">
 
-                <div class="grid grid-cols-2 gap-8">
+                <div class="grid grid-cols-2 gap-8 cols_1_tab">
                     <?php 
                         $args = array(
                             'post_type' => 'post',
@@ -474,7 +494,25 @@ get_header();
                                     }
                             ?>
                                 <div class="profile_item flex items-center gap-4">
-                                    <span class="rank_1">#<?= $i;?></span>
+                                    <?php 
+                                    if( $i == 1 ) {
+                                        ?>
+                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/rank1.png'?>" alt="rank">
+                                        <?php
+                                    } else if($i == 2) {
+                                        ?>
+                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/rank2.png'?>" alt="rank">
+                                        <?php
+                                    }  else if($i == 3) {
+                                        ?>
+                                        <img src="<?= get_stylesheet_directory_uri() . '/assets/img/rank3.png'?>" alt="rank">
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <span class="rank_1">#<?= $i;?></span>
+                                        <?php
+                                    }
+                                    ?>
                                     <img class="roundImg1" src="<?= !empty($user_profile_image) ? esc_url(wp_get_attachment_url($user_profile_image)) : 'https://via.placeholder.com/120/FD7E35/fff?text=User';?>" alt="user">
                                     <h4 class="title_5"><?= esc_html($user->first_name . ' ' . $user->last_name);?></h4>
                                 </div>
@@ -486,16 +524,11 @@ get_header();
                 </div>
 
                 <div class="mt-5 p-4 top_profile_box">
-                    <?php
-                        $custom_logo_id = get_theme_mod( 'custom_logo' );
-						$logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
-                    ?>
-                    <img src="https://images.ctfassets.net/nrgyaltdicpt/6gsvc5Ogjmu04I4Miu0uGg/cb1d4391717d2ab8d5e42ede6fb0eef1/overleaf_wide_colour_light_bg.png" class="image_1" alt="logo">
+                    <img src="<?= home_url('/wp-content/uploads/2024/02/medtrics-logo-color.svg')?>" class="image_1" alt="logo">
                     <p class="my-4">Step into the world of Medicine Unlocked—an open gateway to a treasure trove of profound medical insights, comprehensive information, and vast knowledge, providing a valuable resource for enthusiasts and professionals alike</p>
                     <ul class="social">
                         <li><a href="#!"><svg width="18px" height="18px" viewBox="0 -2 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>twitter [#154]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-60.000000, -7521.000000)" fill="#1d2939"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M10.29,7377 C17.837,7377 21.965,7370.84365 21.965,7365.50546 C21.965,7365.33021 21.965,7365.15595 21.953,7364.98267 C22.756,7364.41163 23.449,7363.70276 24,7362.8915 C23.252,7363.21837 22.457,7363.433 21.644,7363.52751 C22.5,7363.02244 23.141,7362.2289 23.448,7361.2926 C22.642,7361.76321 21.761,7362.095 20.842,7362.27321 C19.288,7360.64674 16.689,7360.56798 15.036,7362.09796 C13.971,7363.08447 13.518,7364.55538 13.849,7365.95835 C10.55,7365.79492 7.476,7364.261 5.392,7361.73762 C4.303,7363.58363 4.86,7365.94457 6.663,7367.12996 C6.01,7367.11125 5.371,7366.93797 4.8,7366.62489 L4.8,7366.67608 C4.801,7368.5989 6.178,7370.2549 8.092,7370.63591 C7.488,7370.79836 6.854,7370.82199 6.24,7370.70483 C6.777,7372.35099 8.318,7373.47829 10.073,7373.51078 C8.62,7374.63513 6.825,7375.24554 4.977,7375.24358 C4.651,7375.24259 4.325,7375.22388 4,7375.18549 C5.877,7376.37088 8.06,7377 10.29,7376.99705" id="twitter-[#154]"> </path> </g> </g> </g> </g></svg></a></li>
-                        <li><a href="#!"><svg width="18px" height="18px" viewBox="-5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>facebook [#176]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-385.000000, -7399.000000)" fill="rgba(29, 41, 57, 1)"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M335.821282,7259 L335.821282,7250 L338.553693,7250 L339,7246 L335.821282,7246 L335.821282,7244.052 C335.821282,7243.022 335.847593,7242 337.286884,7242 L338.744689,7242 L338.744689,7239.14 C338.744689,7239.097 337.492497,7239 336.225687,7239 C333.580004,7239 331.923407,7240.657 331.923407,7243.7 L331.923407,7246 L329,7246 L329,7250 L331.923407,7250 L331.923407,7259 L335.821282,7259 Z" id="facebook-[#176]"> </path> </g> </g> </g> </g></svg></a></li>
-                        <li><a href="#!"><svg width="18px" height="18px" fill="#1d2939" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#1d2939"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>linkedin</title> <path d="M28.778 1.004h-25.56c-0.008-0-0.017-0-0.027-0-1.199 0-2.172 0.964-2.186 2.159v25.672c0.014 1.196 0.987 2.161 2.186 2.161 0.010 0 0.019-0 0.029-0h25.555c0.008 0 0.018 0 0.028 0 1.2 0 2.175-0.963 2.194-2.159l0-0.002v-25.67c-0.019-1.197-0.994-2.161-2.195-2.161-0.010 0-0.019 0-0.029 0h0.001zM9.9 26.562h-4.454v-14.311h4.454zM7.674 10.293c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579c1.424 0 2.579 1.154 2.579 2.578v0c0 0.001 0 0.002 0 0.004 0 1.423-1.154 2.577-2.577 2.577-0.001 0-0.002 0-0.003 0h0zM26.556 26.562h-4.441v-6.959c0-1.66-0.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h0.058c0.828-1.395 2.326-2.315 4.039-2.315 0.061 0 0.121 0.001 0.181 0.003l-0.009-0c4.5 0 5.332 2.962 5.332 6.817v7.855z"></path> </g></svg></a></li>
+                        
                         <li><a href="#!"><svg width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#1d2939"></path> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#1d2939"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#1d2939"></path> </g></svg></a></li>
                     </ul>
                 </div>
@@ -587,7 +620,7 @@ get_header();
             <a href="#!" class="btn_2">View All</a>
         </div>
 
-        <div class="grid grid-cols-2 justify-between gap-8">
+        <div class="grid grid-cols-2 justify-between gap-8 cols_1_tab">
             <div class="">
                 <?php 
                     $args = array(
@@ -691,7 +724,7 @@ get_header();
                 ?>
             </div>
 
-            <div class="grid grid-cols-2 gap-5">
+            <div class="grid grid-cols-2 gap-5 cols_1_mob">
                 <?php 
                     $args = array(
                         'post_type' => 'post',
@@ -768,21 +801,32 @@ get_header();
 <section class="py-20">
     <div class="custom_container">
     
-        <div class="relative cta_bg" style="background-image:url(<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>)">
+        <div class="relative cta_bg" style="background-image:url(https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Rectangle-7129.png)">
             <div class="video_bg_overlay"></div>
             <div class="relative grid grid_1_5 items-center">
                 <div>
-                    <h2 class="heading_main_3">Customize Your Author Profile Contribute Articles. Earn Badges.</h2>
-                    <p class="text-white my-5">Join us in making a difference! Subscribe today and actively contribute to our cause, fostering positive change and creating a better tomorrow.</p>
-                    <a href="<?= home_url('/subscription');?>" class="btn_4">Subscribe Now</a>
+                    <h2 class="heading_main_3 text_center_tab">Customize Your Author Profile Contribute Articles. Earn Badges.</h2>
+                    <p class="text-white my-5 text_center_tab">Join us in making a difference! Subscribe today and actively contribute to our cause, fostering positive change and creating a better tomorrow.</p>
+                    <a href="<?= home_url('/subscription');?>" class="mx_auto_tab btn_4">Subscribe Now</a>
                 </div>
                 <div>
-                    <a href="#!" class="video_play"><svg width="32px" height="32px" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -571.000000)" fill="#ffffff"> <path d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554" id="play" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg></a>
+                    <a href="#!" class="video_play video_play_open"><svg width="32px" height="32px" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -571.000000)" fill="#ffffff"> <path d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554" id="play" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg></a>
                 </div>
             </div>
         </div>
     
     </div>
+
+    <div class="video_popup_wrap">
+        <div class="video_bg_overlay"></div>
+        <div class="video_popup_src">
+            <a href="#!" class="close_video_popup">
+                <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13.06 12L17.48 7.57996C17.5537 7.5113 17.6128 7.4285 17.6538 7.3365C17.6948 7.2445 17.7168 7.14518 17.7186 7.04448C17.7204 6.94378 17.7018 6.84375 17.6641 6.75036C17.6264 6.65697 17.5703 6.57214 17.499 6.50092C17.4278 6.4297 17.343 6.37356 17.2496 6.33584C17.1562 6.29811 17.0562 6.27959 16.9555 6.28137C16.8548 6.28314 16.7555 6.30519 16.6635 6.34618C16.5715 6.38717 16.4887 6.44627 16.42 6.51996L12 10.94L7.58 6.51996C7.43782 6.38748 7.24978 6.31535 7.05548 6.31878C6.86118 6.32221 6.67579 6.40092 6.53838 6.53834C6.40096 6.67575 6.32225 6.86113 6.31882 7.05544C6.3154 7.24974 6.38752 7.43778 6.52 7.57996L10.94 12L6.52 16.42C6.37955 16.5606 6.30066 16.7512 6.30066 16.95C6.30066 17.1487 6.37955 17.3393 6.52 17.48C6.66062 17.6204 6.85125 17.6993 7.05 17.6993C7.24875 17.6993 7.43937 17.6204 7.58 17.48L12 13.06L16.42 17.48C16.5606 17.6204 16.7512 17.6993 16.95 17.6993C17.1488 17.6993 17.3394 17.6204 17.48 17.48C17.6204 17.3393 17.6993 17.1487 17.6993 16.95C17.6993 16.7512 17.6204 16.5606 17.48 16.42L13.06 12Z" fill="#ffffff"></path> </g></svg>
+            </a>
+            <video controls src="<?= home_url('/wp-content/uploads/2024/02/WhatsApp-Video-2024-02-08-at-6.17.23-PM.mp4');?>"></video>
+        </div>
+    </div>
+
 </section>
 
 <section class="pb-20">
@@ -792,7 +836,7 @@ get_header();
             <h2 class="heading_main">Important Global News and Updates</h2>
         </div>
 
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-3 gap-5 cols_1_tab">
             <?php 
                 $args = array(
                     'post_type' => 'post',
@@ -866,7 +910,7 @@ get_header();
 
         <hr class="border_1 border_2">
 
-        <div class="grid grid-cols-3 gap-5">
+        <div class="grid grid-cols-3 gap-5 cols_1_tab">
             <?php 
                 $args = array(
                     'post_type' => 'post',
@@ -943,150 +987,161 @@ get_header();
     <div class="custom_container">
     
         <div class="slide_info">
-            <div class="text-center head_wrap">
-                <h2 class="heading_main_4">Let AI Craft Images for Your Blog by Instant Visuals technology</h2>
-            </div>
-
-            <div class="swiper banner_post_slider py-20">
+            <div class="swiper banner_post_slider pb-20">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide grid grid-cols-2 items-center gap-20">
-                        <div>
-                            <div class="flex mb-10 gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                                </div>
-
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        Content Personalization 
-                                    </h3>
-                                    <p>AI algorithms personalize medical blog content based on user behavior, suggesting related articles aligned with preferences.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex mb-10 gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                                </div>
-
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        Health Content Curation
-                                    </h3>
-                                    <p>AI-driven tools curate accurate, up-to-date medical content by extensive literature and research, ensuring credibility in the blog.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                                </div>
-
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        User Engagement Optimization
-                                    </h3>
-                                    <p>AI optimizes medical blog layout, design, and presentation using user engagement metrics, enhancing the overall experience and continued interaction.</p>
-                                </div>
-                            </div>
+                    <div class="swiper-slide">
+                        <div class="text-center head_wrap">
+                            <h2 class="heading_main_4 pb-20">AI-Powered Grammar Correction</h2>
                         </div>
+                        <div class="grid grid-cols-2 items-center gap-20 cols_1_tab gap_30_mob">
+                            <div class="order_2_tab">
+                                <div class="flex mb-10 gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Group.png"/>
+                                    </div>
 
-                        <div>
-                            <img class="image_4" src="<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>" alt="slider">
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide grid grid-cols-2 items-center gap-20">
-                        <div>
-                            <div class="flex mb-10 gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Advanced Grammar Assistance
+                                        </h3>
+                                        <p>Benefit from sophisticated AI that offers real-time corrections and suggestions, ensuring your medical writing is precise and error-free.</p>
+                                    </div>
                                 </div>
 
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        Content Personalization 
-                                    </h3>
-                                    <p>AI algorithms personalize medical blog content based on user behavior, suggesting related articles aligned with preferences.</p>
-                                </div>
-                            </div>
+                                <div class="flex mb-10 gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Frame.png"/>
+                                    </div>
 
-                            <div class="flex mb-10 gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                                </div>
-
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        Health Content Curation
-                                    </h3>
-                                    <p>AI-driven tools curate accurate, up-to-date medical content by extensive literature and research, ensuring credibility in the blog.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Elevated Writing Style
+                                        </h3>
+                                        <p>Utilize intelligent style recommendations to enhance the readability and professionalism of your articles, reflecting the meticulous nature of medical communication.</p>
+                                    </div>
                                 </div>
 
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        User Engagement Optimization
-                                    </h3>
-                                    <p>AI optimizes medical blog layout, design, and presentation using user engagement metrics, enhancing the overall experience and continued interaction.</p>
+                                <div class="flex gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Group-1.png"/>
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Impeccable Professional Presentation
+                                        </h3>
+                                        <p>AI refines your structure for properly formatted article presentation, so all content has a consistent appearance.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div>
-                            <img class="image_4" src="<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>" alt="slider">
+                            <div class="order_1_tab">
+                                <img class="image_4" src="<?= home_url('/wp-content/uploads/2024/02/Rectangle-7126.png')?>" alt="slider">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="swiper-slide grid grid-cols-2 items-center gap-20">
-                        <div>
-                            <div class="flex mb-10 gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+                    <div class="swiper-slide">
+                        <div class="text-center head_wrap">
+                            <h2 class="heading_main_4 pb-20">AI-Driven Image Generation</h2>
+                        </div>
+                        <div class="grid grid-cols-2 items-center gap-20 cols_1_tab gap_30_mob">
+                            <div class="order_2_tab">
+                                <div class="flex mb-10 gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Group.png"/>
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Innovative Text-to-Visual Conversion 
+                                        </h3>
+                                        <p>Experience the seamless transformation of textual descriptions into high-quality, relevant images that capture the essence of your medical insights.</p>
+                                    </div>
                                 </div>
 
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        Content Personalization 
-                                    </h3>
-                                    <p>AI algorithms personalize medical blog content based on user behavior, suggesting related articles aligned with preferences.</p>
+                                <div class="flex mb-10 gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Frame.png"/>
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Personalized Visual Storytelling
+                                        </h3>
+                                        <p>Create a unique visual narrative for your content with custom images that are tailored by AI to complement and elevate your article's impact.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Group-1.png"/>
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Visually Engaging Medical Content
+                                        </h3>
+                                        <p>Enhance the appeal and understanding of your medical articles with AI-generated visuals, designed to engage and educate your audience effectively.</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="flex mb-10 gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                                </div>
-
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        Health Content Curation
-                                    </h3>
-                                    <p>AI-driven tools curate accurate, up-to-date medical content by extensive literature and research, ensuring credibility in the blog.</p>
-                                </div>
-                            </div>
-
-                            <div class="flex gap-4">
-                                <div class="icon_1">
-                                    <svg width="28px" height="28px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>image-picture</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.00032" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-360.000000, -99.000000)" fill="#00167c"> <path d="M368,109 C366.896,109 366,108.104 366,107 C366,105.896 366.896,105 368,105 C369.104,105 370,105.896 370,107 C370,108.104 369.104,109 368,109 L368,109 Z M368,103 C365.791,103 364,104.791 364,107 C364,109.209 365.791,111 368,111 C370.209,111 372,109.209 372,107 C372,104.791 370.209,103 368,103 L368,103 Z M390,116.128 L384,110 L374.059,120.111 L370,116 L362,123.337 L362,103 C362,101.896 362.896,101 364,101 L388,101 C389.104,101 390,101.896 390,103 L390,116.128 L390,116.128 Z M390,127 C390,128.104 389.104,129 388,129 L382.832,129 L375.464,121.535 L384,112.999 L390,118.999 L390,127 L390,127 Z M364,129 C362.896,129 362,128.104 362,127 L362,126.061 L369.945,118.945 L380.001,129 L364,129 L364,129 Z M388,99 L364,99 C361.791,99 360,100.791 360,103 L360,127 C360,129.209 361.791,131 364,131 L388,131 C390.209,131 392,129.209 392,127 L392,103 C392,100.791 390.209,99 388,99 L388,99 Z" id="image-picture" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                                </div>
-
-                                <div class="flex-1">
-                                    <h3 class="title_6 title_6_1 mb-1">
-                                        User Engagement Optimization
-                                    </h3>
-                                    <p>AI optimizes medical blog layout, design, and presentation using user engagement metrics, enhancing the overall experience and continued interaction.</p>
-                                </div>
+                            <div class="order_1_tab">
+                                <img class="image_4" src="<?= home_url('/wp-content/uploads/2024/02/Rectangle-7126.png')?>" alt="slider">
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="text-center head_wrap">
+                            <h2 class="heading_main_4 pb-20">API Integration for Credentials and Analytics</h2>
+                        </div>
+                        <div class="grid grid-cols-2 items-center gap-20 cols_1_tab gap_30_mob">
+                            <div class="order_2_tab">
+                                <div class="flex mb-10 gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Group.png"/>
+                                    </div>
 
-                        <div>
-                            <img class="image_4" src="<?= get_stylesheet_directory_uri() . '/assets/img/video-cover.jpg'?>" alt="slider">
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Seamless Credential Broadcasting
+                                        </h3>
+                                        <p>Effortlessly display your professional credentials on Medtrics, thanks to smooth API integrations that maintain the integrity of your medical brand.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-10 gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Frame.png"/>
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Comprehensive Social Media Analytics
+                                        </h3>
+                                        <p>Gain valuable insights into your social media content's performance and audience engagement, enabling you to refine your strategy and extend your professional reach.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-4 flex_col_mob">
+                                    <div class="icon_1">
+                                        <img src="https://viziflyteam.website/medicine/wp-content/uploads/2024/02/Group-1.png"/>
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <h3 class="title_6 title_6_1 mb-1">
+                                            Strategic Data-Driven Decisions
+                                        </h3>
+                                        <p>Leverage detailed analytics to inform potential sponsors and brands of your objective value as a medical creator.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="order_1_tab">
+                                <img class="image_4" src="<?= home_url('/wp-content/uploads/2024/02/Rectangle-7126.png')?>" alt="slider">
+                            </div>
                         </div>
                     </div>
                 </div>

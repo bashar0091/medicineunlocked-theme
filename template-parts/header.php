@@ -31,10 +31,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php 
 				if( !is_user_logged_in()  ) {
 					?>
-					<a href="<?php echo home_url('/login');?>" class="text-white">Sign In</a>
-					<a href="<?= home_url('/subscription');?>" class="custom_btn">Subscribe</a>
+					<a href="<?php echo home_url('/login');?>" class="d_none_mob text-white">Sign In</a>
+					<a href="<?= home_url('/subscription');?>" class="d_none_mob custom_btn">Subscribe</a>
 
-					<a href="#!" class="menu_open_wrap">
+					<a href="#!" class="menu_open_wrap menu_open_click">
 						<span class="humberger"></span>
 						<span class="humberger"></span>
 						<span class="humberger"></span>
@@ -206,3 +206,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</div>
 </header>
+
+<div class="side_menu_wrap">
+	<div class="side_menu">
+		<div class="side_menu_header">
+			<a href="#!" class="close_sidebar close_sidebar_click">
+				<svg width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g stroke="#ffffff" stroke-linecap="round" stroke-width="2"> <path d="M6 18L18 6"></path> <path d="M18 18L6 6"></path> </g> </g></svg>
+			</a>
+			<div class="logo_wrap">
+				<a href="<?php echo home_url('/');?>" class="logo_wrap">
+					<?php 
+						$custom_logo_id = get_theme_mod( 'custom_logo' );
+						$logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
+						echo '<img src="'.$logo_url.'" alt="Logo" />';
+					?>
+				</a>
+			</div>
+			<ul class="social_media_wrap">
+				<li><a href=""></a></li>
+			</ul>
+		</div>
+
+		<div class="side_menu_body">
+			<ul class="menu_page">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Founders</a></li>
+			</ul>
+			<h2 class="heading_main_4">News Categories</h2>
+			<ul class="menu_cat">
+				<?php 
+					$categories = get_categories();
+					foreach ($categories as $category) {
+						?>
+							<li><a href="<?= $category->slug;?>"><?= $category->name;?></a></li>
+						<?php
+					}
+				?>
+			</ul>
+		</div>
+	</div>
+</div>
