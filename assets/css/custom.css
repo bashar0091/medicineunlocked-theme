@@ -1278,9 +1278,16 @@ span {
 .search_category label:hover path {
     fill: #fff;
 }
+.category_main_wrap_search {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
 /* responsive css  */
 @media (max-width: 1100px) {
+    .category_main_wrap_search {
+        grid-template-columns: 1fr 1fr;
+    }
     .grid_wrapper_2 {
         -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1349,6 +1356,9 @@ span {
 }
 
 @media (max-width: 768px) {
+    .category_main_wrap_search {
+        grid-template-columns: 1fr;
+    }
     .search_category {
         display: flex;
         max-width: 100%;
