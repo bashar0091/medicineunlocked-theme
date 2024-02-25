@@ -17,7 +17,7 @@ get_header();
                 <h1 class="title_1 text_center_tab">Enter Medicine Medtrics Explore health innovations with us today</h1>
                 <p class="text_1 pt-5 pb-10 text_center_tab">Medicine Unlocked is your gateway to a treasure trove of medical insights, information, and knowledge.</p>
                 <form action="<?= home_url('/search-result');?>" method="get" class="search_form">
-                    <input type="text" name="search_keyword" placeholder="Search Authors">
+                    <input type="text" name="search_keyword" placeholder="Search Here">
                     <a href="#!" class="search_btn search_btn_type_click">
                         <span>Articles</span>
                         <svg width="24px" height="24px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 14.5C11.9015 14.5005 11.8038 14.4813 11.7128 14.4435C11.6218 14.4057 11.5392 14.3501 11.47 14.28L8 10.78C7.90861 10.6391 7.86719 10.4715 7.88238 10.3042C7.89756 10.1369 7.96848 9.97954 8.08376 9.85735C8.19904 9.73515 8.352 9.65519 8.51814 9.63029C8.68428 9.6054 8.85396 9.63699 9 9.72003L12 12.72L15 9.72003C15.146 9.63699 15.3157 9.6054 15.4819 9.63029C15.648 9.65519 15.801 9.73515 15.9162 9.85735C16.0315 9.97954 16.1024 10.1369 16.1176 10.3042C16.1328 10.4715 16.0914 10.6391 16 10.78L12.5 14.28C12.3675 14.4144 12.1886 14.4931 12 14.5Z" fill="#00167c"></path> </g></svg>
@@ -102,11 +102,13 @@ get_header();
 
                                             <div class="my-1">
                                                 <h3 class="title_2">
-                                                    <?php
-                                                        $title_words = explode(' ', get_the_title());
-                                                        $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
-                                                        echo count($title_words) > 10  ? $trimmed_title . '...' : $trimmed_title;
-                                                    ?>    
+                                                    <a href="<?= get_the_permalink();?>">
+                                                        <?php
+                                                            $title_words = explode(' ', get_the_title());
+                                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                                            echo count($title_words) > 10  ? $trimmed_title . '...' : $trimmed_title;
+                                                        ?>
+                                                    </a>    
                                                 </h3>
                                             </div>
 
@@ -185,11 +187,13 @@ get_header();
 
                                             <div class="my-1">
                                                 <h3 class="title_2">
-                                                    <?php
-                                                        $title_words = explode(' ', get_the_title());
-                                                        $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
-                                                        echo count($title_words) > 10  ? $trimmed_title . '...' : $trimmed_title;
-                                                    ?>    
+                                                    <a href="<?= get_the_permalink();?>">
+                                                        <?php
+                                                            $title_words = explode(' ', get_the_title());
+                                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                                            echo count($title_words) > 10  ? $trimmed_title . '...' : $trimmed_title;
+                                                        ?>
+                                                    </a>    
                                                 </h3>
                                             </div>
 
@@ -268,11 +272,13 @@ get_header();
 
                                             <div class="my-1">
                                                 <h3 class="title_2">
-                                                    <?php
-                                                        $title_words = explode(' ', get_the_title());
-                                                        $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
-                                                        echo count($title_words) > 10  ? $trimmed_title . '...' : $trimmed_title;
-                                                    ?>    
+                                                    <a href="<?= get_the_permalink();?>">
+                                                        <?php
+                                                            $title_words = explode(' ', get_the_title());
+                                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                                            echo count($title_words) > 10  ? $trimmed_title . '...' : $trimmed_title;
+                                                        ?> 
+                                                    </a>   
                                                 </h3>
                                             </div>
 
@@ -358,11 +364,13 @@ get_header();
 
                                         <div class="py-4">
                                             <h3 class="title_2 title_3">
-                                                <?php
-                                                    $title_words = explode(' ', get_the_title());
-                                                    $trimmed_title = implode(' ', array_slice($title_words, 0, 7));
-                                                    echo count($title_words) > 7 ? $trimmed_title . '...' : $trimmed_title;
-                                                ?>    
+                                                <a href="<?= get_the_permalink();?>">
+                                                    <?php
+                                                        $title_words = explode(' ', get_the_title());
+                                                        $trimmed_title = implode(' ', array_slice($title_words, 0, 7));
+                                                        echo count($title_words) > 7 ? $trimmed_title . '...' : $trimmed_title;
+                                                    ?>  
+                                                </a>  
                                             </h3>
                                         </div>
 
@@ -428,11 +436,13 @@ get_header();
 
                                         <div class="pb-2">
                                             <h3 class="title_2 title_3">
-                                                <?php
-                                                    $title_words = explode(' ', get_the_title());
-                                                    $trimmed_title = implode(' ', array_slice($title_words, 0, 7));
-                                                    echo count($title_words) > 7 ? $trimmed_title . '...' : $trimmed_title;
-                                                ?>    
+                                                <a href="<?= get_the_permalink();?>">
+                                                    <?php
+                                                        $title_words = explode(' ', get_the_title());
+                                                        $trimmed_title = implode(' ', array_slice($title_words, 0, 7));
+                                                        echo count($title_words) > 7 ? $trimmed_title . '...' : $trimmed_title;
+                                                    ?>
+                                                </a>    
                                             </h3>
                                         </div>
 
@@ -687,11 +697,13 @@ get_header();
 
                                     <div>
                                         <h3 class="title_2 title_3 title_6">
-                                            <?php
-                                                $title_words = explode(' ', get_the_title());
-                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
-                                                echo count($title_words) > 10 ? $trimmed_title . '...' : $trimmed_title;
-                                            ?>    
+                                            <a href="<?= get_the_permalink();?>">
+                                                <?php
+                                                    $title_words = explode(' ', get_the_title());
+                                                    $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                                    echo count($title_words) > 10 ? $trimmed_title . '...' : $trimmed_title;
+                                                ?>
+                                            </a>    
                                         </h3>
                                         <p class="py-4 text_2">
                                             <?php
@@ -756,11 +768,13 @@ get_header();
 
                                     <div class="pb-2">
                                         <h3 class="title_2 title_3">
-                                            <?php
-                                                $title_words = explode(' ', get_the_title());
-                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 5));
-                                                echo count($title_words) > 5 ? $trimmed_title . '...' : $trimmed_title;
-                                            ?>    
+                                            <a href="<?= get_the_permalink();?>">
+                                                <?php
+                                                    $title_words = explode(' ', get_the_title());
+                                                    $trimmed_title = implode(' ', array_slice($title_words, 0, 5));
+                                                    echo count($title_words) > 5 ? $trimmed_title . '...' : $trimmed_title;
+                                                ?> 
+                                            </a>   
                                         </h3>
                                     </div>
 
@@ -869,11 +883,13 @@ get_header();
 
                                 <div class="pb-2">
                                     <h3 class="title_2 title_3">
-                                        <?php
-                                            $title_words = explode(' ', get_the_title());
-                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
-                                            echo count($title_words) > 10 ? $trimmed_title . '...' : $trimmed_title;
-                                        ?>    
+                                        <a href="<?= get_the_permalink();?>">
+                                            <?php
+                                                $title_words = explode(' ', get_the_title());
+                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 10));
+                                                echo count($title_words) > 10 ? $trimmed_title . '...' : $trimmed_title;
+                                            ?>
+                                        </a>    
                                     </h3>
                                 </div>
 
@@ -942,11 +958,13 @@ get_header();
 
                                 <div class="pb-2">
                                     <h3 class="title_2 title_3">
-                                        <?php
-                                            $title_words = explode(' ', get_the_title());
-                                            $trimmed_title = implode(' ', array_slice($title_words, 0, 5));
-                                            echo count($title_words) > 5 ? $trimmed_title . '...' : $trimmed_title;
-                                        ?>    
+                                        <a href="<?= get_the_permalink();?>">
+                                            <?php
+                                                $title_words = explode(' ', get_the_title());
+                                                $trimmed_title = implode(' ', array_slice($title_words, 0, 5));
+                                                echo count($title_words) > 5 ? $trimmed_title . '...' : $trimmed_title;
+                                            ?>
+                                        </a>    
                                     </h3>
                                 </div>
 

@@ -16,6 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="flex justify-between">
 			<div class="flex items-center gap-5">
+				<a href="#!" class="menu_open_wrap menu_open_click">
+					<span class="humberger"></span>
+					<span class="humberger"></span>
+					<span class="humberger"></span>
+				</a>
 				<!-- logo -->
 				<a href="<?php echo home_url('/');?>" class="logo_wrap">
 					<?php 
@@ -33,12 +38,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 					<a href="<?php echo home_url('/login');?>" class="d_none_mob text-white">Sign In</a>
 					<a href="<?= home_url('/subscription');?>" class="d_none_mob custom_btn">Subscribe</a>
-
-					<a href="#!" class="menu_open_wrap menu_open_click">
-						<span class="humberger"></span>
-						<span class="humberger"></span>
-						<span class="humberger"></span>
-					</a>
 					<?php
 				} else {
 					?>
@@ -69,9 +68,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 									$current_user_id = get_current_user_id();
 									$user_profile_image = get_user_meta($current_user_id, 'user_profile_image', true);
 									if(!empty($user_profile_image)) {
-										echo '<img class="rounded-full" src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
+										echo '<img class="w-full h-full object-cover rounded-full" src="'.wp_get_attachment_url($user_profile_image).'" alt="User" />';
 									} else {
-										echo '<img class="rounded-full" src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
+										echo '<img class="w-full h-full object-cover rounded-full" src="https://via.placeholder.com/120/FD7E35/fff?text=User" alt="User" />';
 									}
 								?>
 							</span>
